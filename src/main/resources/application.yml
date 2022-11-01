@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:derby:bricks;create=true
+#    url: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+#    url: jdbc:hsqldb:hsql://localhost/bricks
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    username: derbyuser
+#    password: password
+#    initialization-mode: never
+#    schema: initial-schema.sql
+#    data: initial-data.sql
+
+bricklink:
+  catalog:
+    load-on-startup: false
+    resources: #Resources must be loaded in this order
+      colors: classpath:bricklink/colors.txt
+      categories: classpath:bricklink/categories.txt
+      elements: classpath:bricklink/Parts.txt
+      piece: classpath:bricklink/codes.txt
