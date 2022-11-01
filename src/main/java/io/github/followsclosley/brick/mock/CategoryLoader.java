@@ -22,12 +22,12 @@ import java.io.Reader;
 
 @Order(2)
 @Component
-@ConditionalOnExpression("${bricklink.catalog.load-on-startup:false}")
+@ConditionalOnExpression("${catalog.load-on-startup:false}")
 public class CategoryLoader implements ApplicationRunner {
 
     final Logger logger = LoggerFactory.getLogger(CategoryLoader.class);
 
-    @Value( "${bricklink.catalog.resources.categories}" )
+    @Value("${catalog.resources.bricklink.categories}")
     private Resource resource;
 
     @Autowired
@@ -36,6 +36,7 @@ public class CategoryLoader implements ApplicationRunner {
     /**
      * A tab delimited file containing all categories.
      * Category ID	Category Name
+     *
      * @throws IOException if anything goes wrong with reading the resource
      */
     public void run(ApplicationArguments args) throws Exception {

@@ -23,12 +23,12 @@ import java.util.stream.Collectors;
 
 @Order(4)
 @Component
-@ConditionalOnExpression("${bricklink.catalog.load-on-startup:false}")
+@ConditionalOnExpression("${catalog.load-on-startup:false}")
 public class PieceLoader implements ApplicationRunner {
 
     final Logger logger = LoggerFactory.getLogger(PieceLoader.class);
 
-    @Value( "${bricklink.catalog.resources.piece}" )
+    @Value("${catalog.resources.bricklink.piece}")
     private Resource resource;
 
     @Autowired
@@ -80,7 +80,7 @@ public class PieceLoader implements ApplicationRunner {
                     if (counter % 10000 == 0) {
                         logger.info("Inserted {} pieces so far...", counter);
                     }
-                } catch(Throwable t){
+                } catch (Throwable t) {
                     logger.error("Error persisting record: {}", record);
                 }
             }

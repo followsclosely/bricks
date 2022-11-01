@@ -26,12 +26,12 @@ import java.util.stream.Collectors;
 
 @Order(3)
 @Component
-@ConditionalOnExpression("${bricklink.catalog.load-on-startup:false}")
+@ConditionalOnExpression("${catalog.load-on-startup:false}")
 public class ElementLoader implements ApplicationRunner {
 
     final Logger logger = LoggerFactory.getLogger(ElementLoader.class);
 
-    @Value( "${bricklink.catalog.resources.elements}" )
+    @Value("${catalog.resources.bricklink.elements}")
     private Resource resource;
 
     @Autowired
@@ -66,7 +66,7 @@ public class ElementLoader implements ApplicationRunner {
 
                 elementRepository.save(element);
                 counter++;
-                if( counter % 10000 == 0) {
+                if (counter % 10000 == 0) {
                     logger.info("Inserted {} elements so far...", counter);
                 }
             }

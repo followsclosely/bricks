@@ -22,12 +22,12 @@ import java.io.Reader;
 
 @Order(1)
 @Component
-@ConditionalOnExpression("${bricklink.catalog.load-on-startup:false}")
+@ConditionalOnExpression("${catalog.load-on-startup:false}")
 public class ColorLoader implements ApplicationRunner {
 
     final Logger logger = LoggerFactory.getLogger(ColorLoader.class);
 
-    @Value( "${bricklink.catalog.resources.colors}" )
+    @Value("${catalog.resources.bricklink.colors}")
     private Resource resource;
 
     @Autowired
@@ -36,6 +36,7 @@ public class ColorLoader implements ApplicationRunner {
     /**
      * A tab delimited file containing all colors.
      * Color ID | Color Name | RGB | Type | Parts | In Sets | Wanted | For Sale | Year From | Year To
+     *
      * @throws IOException if anything goes wrong with reading the resource
      */
     public void run(ApplicationArguments args) throws Exception {
