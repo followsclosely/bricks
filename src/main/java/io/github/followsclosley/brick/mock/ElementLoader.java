@@ -1,9 +1,9 @@
 package io.github.followsclosley.brick.mock;
 
 import io.github.followsclosley.brick.jpa.Category;
-import io.github.followsclosley.brick.jpa.CategoryRepository;
+import io.github.followsclosley.brick.jpa.repository.CategoryRepository;
 import io.github.followsclosley.brick.jpa.Element;
-import io.github.followsclosley.brick.jpa.ElementRepository;
+import io.github.followsclosley.brick.jpa.repository.ElementRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

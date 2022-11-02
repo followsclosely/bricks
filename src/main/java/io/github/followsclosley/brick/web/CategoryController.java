@@ -1,9 +1,10 @@
 package io.github.followsclosley.brick.web;
 
 import io.github.followsclosley.brick.jpa.Category;
-import io.github.followsclosley.brick.jpa.CategoryRepository;
-import io.github.followsclosley.brick.web.converter.CategoryConverter;
-import io.github.followsclosley.brick.web.pojo.CategoryDto;
+import io.github.followsclosley.brick.jpa.repository.CategoryRepository;
+import io.github.followsclosley.brick.web.converter.Converter;
+import io.github.followsclosley.brick.web.converter.VersionedConverter;
+import io.github.followsclosley.brick.web.dto.CategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -18,17 +19,17 @@ import java.util.List;
 @RestController
 public class CategoryController {
     @Autowired private CategoryRepository repository;
-    @Autowired private CategoryConverter converter;
+    @Autowired private VersionedConverter converter;
 
-    @GetMapping(value = "category", produces = "application/json")
-    Page<CategoryDto> getCategoriesByName(@Param("name") String name, Pageable pageable) {
+    @GetMapping(value = "/{version}/category", produces = "application/json")
+    Page<CategoryDto> getCategoriesByName(@PathVariable(name = "version", required = false) String version, @Param("name") String name, Pageable pageable) {
         Page<Category> page = repository.query(name, pageable);
-        List<CategoryDto> colors = page.getContent().stream().map(converter::convert).toList();
+        List<CategoryDto> colors = page.getContent().stream().map(c -> converter.map(c, CategoryDto.class, version)).toList();
         return new PageImpl<>(colors, page.getPageable(), page.getTotalPages());
     }
 
-    @GetMapping(value = "category/{id}", produces = "application/json")
-    CategoryDto getCategory(@PathVariable String id) {
-        return converter.convert(repository.getReferenceById(id));
+    @GetMapping(value = "/{version}/category/{id}", produces = "application/json")
+    CategoryDto getCategory(@PathVariable(name = "version", required = false) String version, @PathVariable String id) {
+        return converter.map(repository.getReferenceById(id), CategoryDto.class, version);
     }
 }

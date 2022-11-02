@@ -21,6 +21,8 @@ dependencies {
 
 	//implementation 'org.hibernate:hibernate-ehcache:6.0.0.Alpha7'
 
+	implementation 'org.modelmapper:modelmapper:3.1.0'
+
 	implementation 'org.apache.commons:commons-csv:1.9.0'
 
 	compileOnly 'org.projectlombok:lombok'

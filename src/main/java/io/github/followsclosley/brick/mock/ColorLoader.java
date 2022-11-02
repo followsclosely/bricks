@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.mock;
 
 import io.github.followsclosley.brick.jpa.Color;
-import io.github.followsclosley.brick.jpa.ColorRepository;
+import io.github.followsclosley.brick.jpa.repository.ColorRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

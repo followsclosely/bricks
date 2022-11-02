@@ -1,13 +1,10 @@
 package io.github.followsclosley.brick.jpa;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.ManyToAny;
 
 import java.util.List;
 
@@ -21,7 +18,8 @@ public class Wall {
     @Column(length = 1000)
     private String name;
 
-    @ManyToAny
-    //@JoinTable(name="wall_inventory")
+    @ManyToMany
+    @JoinTable(name="wall_inventory")
+    @OrderColumn(name = "bin", nullable = false)
     private List<Piece> pieces;
 }

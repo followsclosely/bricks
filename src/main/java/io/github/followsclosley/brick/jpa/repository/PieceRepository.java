@@ -1,5 +1,6 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.jpa.repository;
 
+import io.github.followsclosley.brick.jpa.Piece;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PieceRepository extends JpaRepository<Piece, String> {

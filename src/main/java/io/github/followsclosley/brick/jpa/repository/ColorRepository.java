@@ -1,5 +1,6 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.jpa.repository;
 
+import io.github.followsclosley.brick.jpa.Color;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

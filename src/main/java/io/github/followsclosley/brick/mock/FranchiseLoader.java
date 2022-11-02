@@ -2,7 +2,7 @@ package io.github.followsclosley.brick.mock;
 
 import io.github.followsclosley.brick.jpa.Address;
 import io.github.followsclosley.brick.jpa.Franchise;
-import io.github.followsclosley.brick.jpa.FranchiseRepository;
+import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

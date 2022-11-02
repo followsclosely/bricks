@@ -1,7 +1,7 @@
 spring:
   datasource:
     #https://www.baeldung.com/spring-boot-h2-database
-    url: jdbc:h2:file:./h2-bricks
+    url: jdbc:h2:file:./h2-bricks;AUTO_SERVER=TRUE
     driverClassName: org.h2.Driver
     username: sa
     password: password
