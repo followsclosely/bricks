@@ -1,6 +1,8 @@
 package io.github.followsclosley.brick.mock;
 
-import io.github.followsclosley.brick.jpa.*;
+import io.github.followsclosley.brick.jpa.Color;
+import io.github.followsclosley.brick.jpa.Element;
+import io.github.followsclosley.brick.jpa.Piece;
 import io.github.followsclosley.brick.jpa.repository.ColorRepository;
 import io.github.followsclosley.brick.jpa.repository.ElementRepository;
 import io.github.followsclosley.brick.jpa.repository.PieceRepository;

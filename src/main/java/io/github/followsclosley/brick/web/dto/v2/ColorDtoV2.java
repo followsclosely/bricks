@@ -10,7 +10,6 @@ import lombok.*;
 public class ColorDtoV2 implements ColorDto {
     String id;
     String name;
-    //Removed rgb
-    //String rgb;
+    //String rgb; <-- !!This field has been removed!!
     final String someNewProperty = "Stink";
 }
