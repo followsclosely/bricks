@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class ModelMapperConverter implements Converter {
-    private final ModelMapper mapper = new ModelMapper();
+    protected final ModelMapper mapper = new ModelMapper();
 
     protected final Map<Class<?>, Class<?>> interfaceToVersionMap = new HashMap<>();
 

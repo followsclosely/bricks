@@ -1,5 +1,6 @@
 package io.github.followsclosley.brick.web.converter;
 
+import io.github.followsclosley.brick.jpa.Franchise;
 import io.github.followsclosley.brick.web.dto.CategoryDto;
 import io.github.followsclosley.brick.web.dto.ColorDto;
 import io.github.followsclosley.brick.web.dto.ElementDto;
@@ -8,6 +9,7 @@ import io.github.followsclosley.brick.web.dto.v1.CategoryDtoV1;
 import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import io.github.followsclosley.brick.web.dto.v1.ElementDtoV1;
 import io.github.followsclosley.brick.web.dto.v1.FranchiseDtoV1;
+import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component("v1")
