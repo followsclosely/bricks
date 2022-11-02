@@ -29,6 +29,7 @@ public class FranchiseController {
 
     @GetMapping(value = "/{version}/franchise/{id}", produces = "application/json")
     FranchiseDto getElement(@PathVariable(name = "version") String version, @PathVariable String id) {
-        return converter.map(repository.getReferenceById(id), FranchiseDto.class, version);
+        Franchise franchise = repository.getReferenceById(id);
+        return converter.map(franchise, FranchiseDto.class, version);
     }
 }

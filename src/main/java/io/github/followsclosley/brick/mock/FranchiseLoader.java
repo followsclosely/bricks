@@ -2,7 +2,9 @@ package io.github.followsclosley.brick.mock;
 
 import io.github.followsclosley.brick.jpa.Address;
 import io.github.followsclosley.brick.jpa.Franchise;
+import io.github.followsclosley.brick.jpa.Wall;
 import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
+import io.github.followsclosley.brick.jpa.repository.PieceRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 
 @Component
 @ConditionalOnExpression("${catalog.load-on-startup:false}")
@@ -28,6 +31,9 @@ public class FranchiseLoader implements ApplicationRunner {
 
     @Value("${catalog.resources.franchise}")
     private Resource resource;
+
+    @Autowired
+    private PieceRepository pieceRepository;
 
     @Autowired
     private FranchiseRepository repository;
@@ -53,11 +59,15 @@ public class FranchiseLoader implements ApplicationRunner {
             for (CSVRecord record : csvParser.parse(reader)) {
                 try {
                     Franchise franchise = new Franchise();
-                    franchise.setId(String.format("%09d", record.getRecordNumber()));
                     franchise.setName(record.get(0));
                     if (record.getRecordNumber() > 1) {
                         franchise.setAddress(Address.builder().district(record.get(1)).build());
                     }
+
+                    Wall wall = Wall.builder().name("Default").build();
+                    wall.setPieces(Arrays.asList(pieceRepository.getReferenceById("4211575"))
+                    );
+                    franchise.setWalls(Arrays.asList(wall));
 
                     repository.save(franchise);
                     counter++;

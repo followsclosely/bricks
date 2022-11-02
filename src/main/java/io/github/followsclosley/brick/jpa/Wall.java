@@ -1,20 +1,21 @@
 package io.github.followsclosley.brick.jpa;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Wall {
-    @Id private String id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
+
     @Column(length = 1000)
     private String name;
 

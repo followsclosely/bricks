@@ -11,9 +11,9 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FranchiseDtoV1 implements FranchiseDto {
+public class PieceDtoV1 implements FranchiseDto {
     private String id;
-    private String name;
-    private AddressDtoV1 address;
-    private List<WallDtoV1> walls;
+
+    private ElementDtoV1 element;
+    private ColorDtoV1 color;
 }

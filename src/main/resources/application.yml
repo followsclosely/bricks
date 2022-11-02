@@ -6,7 +6,7 @@ spring:
     username: sa
     password: password
   jpa:
-    show-sql: true
+    show-sql: false
     database-platform: org.hibernate.dialect.H2Dialect
 #    properties:
 #      hibernate.cache.use_second_level_cache: true
@@ -22,7 +22,7 @@ spring:
     console.enabled: true
 
 catalog:
-  load-on-startup: false
+  load-on-startup: true
   resources:
     bricklink: #Resources must be loaded in this order
       colors: classpath:bricklink/colors.txt
