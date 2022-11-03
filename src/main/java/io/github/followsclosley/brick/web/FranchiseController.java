@@ -24,7 +24,7 @@ public class FranchiseController {
     Page<FranchiseDto> getFranchisesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
         Page<Franchise> page = repository.findByNameContainingIgnoreCase (name, pageable);
         List<FranchiseDto> parts = page.getContent().stream().map(e->converter.map(e, FranchiseDto.class, version)).toList();
-        return new PageImpl<>(parts, page.getPageable(), page.getTotalPages());
+        return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 
     @GetMapping(value = "/{version}/franchise/{id}", produces = "application/json")

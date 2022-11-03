@@ -25,7 +25,7 @@ public class ColorController {
     Page<ColorDto> getColorsByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
         Page<Color> page = colorRepository.query(name, pageable);
         List<ColorDto> colors = page.getContent().stream().map(c -> converter.map(c, ColorDto.class, version)).toList();
-        return new PageImpl<>(colors, page.getPageable(), page.getTotalPages());
+        return new PageImpl<>(colors, page.getPageable(), page.getTotalElements());
     }
 
     @GetMapping(value = "/{version}/color/{id}", produces = "application/json")
