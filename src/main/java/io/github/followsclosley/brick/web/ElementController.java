@@ -17,13 +17,15 @@ import java.util.List;
 
 @RestController
 public class ElementController {
-    @Autowired private ElementRepository repository;
-    @Autowired private VersionedConverter converter;
+    @Autowired
+    private ElementRepository repository;
+    @Autowired
+    private VersionedConverter converter;
 
     @GetMapping(value = "/{version}/element", produces = "application/json")
     Page<ElementDto> getElementsByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
         Page<Element> page = repository.findByNameContainingIgnoreCase(name, pageable);
-        List<ElementDto> parts = page.getContent().stream().map(e->converter.map(e, ElementDto.class, version)).toList();
+        List<ElementDto> parts = page.getContent().stream().map(e -> converter.map(e, ElementDto.class, version)).toList();
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 

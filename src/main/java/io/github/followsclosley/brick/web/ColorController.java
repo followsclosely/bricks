@@ -17,9 +17,11 @@ import java.util.List;
 
 @RestController
 public class ColorController {
-    @Autowired private ColorRepository colorRepository;
+    @Autowired
+    private ColorRepository colorRepository;
 
-    @Autowired private VersionedConverter converter;
+    @Autowired
+    private VersionedConverter converter;
 
     @GetMapping(value = "/{version}/color", produces = "application/json")
     Page<ColorDto> getColorsByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {

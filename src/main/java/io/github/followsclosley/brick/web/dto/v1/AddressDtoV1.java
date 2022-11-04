@@ -5,8 +5,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@Builder @ToString
-@NoArgsConstructor @AllArgsConstructor
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressDtoV1 implements ColorDto {
     private String city;
 

@@ -15,7 +15,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Piece {
-    @Id private String id;
-    @ManyToOne @JoinColumn(name = "element_id") private Element element;
-    @ManyToOne @JoinColumn(name = "color_id") private Color color;
+    @Id
+    private String id;
+    @ManyToOne
+    @JoinColumn(name = "element_id")
+    private Element element;
+    @ManyToOne
+    @JoinColumn(name = "color_id")
+    private Color color;
 }

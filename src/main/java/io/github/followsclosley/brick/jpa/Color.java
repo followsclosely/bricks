@@ -14,7 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Color {
-    @Id private String id;
+    @Id
+    private String id;
     private String name;
     private String rgb;
     private String parts;

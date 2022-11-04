@@ -10,9 +10,10 @@ public class VersionedConverter implements Converter {
 
     private final Converter defaultConverter = new ConverterV1();
 
-    @Autowired private Map<String, Converter> converters;
+    @Autowired
+    private Map<String, Converter> converters;
 
-    public <P> P map(Object bean, Class<P> klass, String version){
+    public <P> P map(Object bean, Class<P> klass, String version) {
         Converter converter = converters.getOrDefault(version, defaultConverter);
         return converter.map(bean, klass);
     }

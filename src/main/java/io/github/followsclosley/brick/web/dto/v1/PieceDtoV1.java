@@ -1,9 +1,7 @@
 package io.github.followsclosley.brick.web.dto.v1;
 
-import io.github.followsclosley.brick.web.dto.FranchiseDto;
+import io.github.followsclosley.brick.web.dto.PieceDto;
 import lombok.*;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -11,9 +9,8 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PieceDtoV1 implements FranchiseDto {
+public class PieceDtoV1 implements PieceDto {
     private String id;
-
     private ElementDtoV1 element;
     private ColorDtoV1 color;
 }

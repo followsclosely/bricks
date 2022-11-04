@@ -16,10 +16,11 @@ public abstract class ModelMapperConverter implements Converter {
         return mapper.map(bean, map(klass));
     }
 
-    protected void addMapping(Class<?> type, Class<?> version){
+    protected void addMapping(Class<?> type, Class<?> version) {
         interfaceToVersionMap.put(type, version);
     }
-    private Type map(Type type){
+
+    private Type map(Type type) {
         return interfaceToVersionMap.getOrDefault(type, type.getClass());
     }
 }

@@ -4,14 +4,15 @@ import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ColorToDtoTest {
 
     private static final ModelMapper modelMapper = new ModelMapper();
 
     @Test
-    public void testDtoToDomain(){
+    public void testDtoToDomain() {
         ColorDtoV1 dto = new ColorDtoV1("id", "name", "rgb");
         Color color = modelMapper.map(dto, Color.class);
 
@@ -22,7 +23,7 @@ class ColorToDtoTest {
     }
 
     @Test
-    public void testDomainToDto(){
+    public void testDomainToDto() {
         Color color = new Color("id", "name", "rgb", "parts");
         ColorDtoV1 dto = modelMapper.map(color, ColorDtoV1.class);
 

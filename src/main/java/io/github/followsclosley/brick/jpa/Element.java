@@ -13,10 +13,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Element {
 
-    @Id private String id;
+    @Id
+    private String id;
     @Column(length = 1000)
     private String name;
 
-    @ManyToOne @JoinColumn(name = "category_id")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 }

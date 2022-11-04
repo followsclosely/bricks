@@ -6,7 +6,6 @@ import io.github.followsclosley.brick.web.dto.ColorDto;
 import io.github.followsclosley.brick.web.dto.ElementDto;
 import io.github.followsclosley.brick.web.dto.FranchiseDto;
 import io.github.followsclosley.brick.web.dto.v1.CategoryDtoV1;
-import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import io.github.followsclosley.brick.web.dto.v1.ElementDtoV1;
 import io.github.followsclosley.brick.web.dto.v1.FranchiseDtoV1;
 import io.github.followsclosley.brick.web.dto.v2.ColorDtoV2;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component("v2")
 public class ConverterV2 extends ModelMapperConverter {
-    public ConverterV2(){
+    public ConverterV2() {
         mapper.getConfiguration().setAmbiguityIgnored(true);
 
         addMapping(CategoryDto.class, CategoryDtoV1.class);

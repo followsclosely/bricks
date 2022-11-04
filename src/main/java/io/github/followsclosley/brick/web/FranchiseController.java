@@ -17,13 +17,15 @@ import java.util.List;
 
 @RestController
 public class FranchiseController {
-    @Autowired private FranchiseRepository repository;
-    @Autowired private VersionedConverter converter;
+    @Autowired
+    private FranchiseRepository repository;
+    @Autowired
+    private VersionedConverter converter;
 
     @GetMapping(value = "/{version}/franchise", produces = "application/json")
     Page<FranchiseDto> getFranchisesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
-        Page<Franchise> page = repository.findByNameContainingIgnoreCase (name, pageable);
-        List<FranchiseDto> parts = page.getContent().stream().map(e->converter.map(e, FranchiseDto.class, version)).toList();
+        Page<Franchise> page = repository.findByNameContainingIgnoreCase(name, pageable);
+        List<FranchiseDto> parts = page.getContent().stream().map(e -> converter.map(e, FranchiseDto.class, version)).toList();
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 

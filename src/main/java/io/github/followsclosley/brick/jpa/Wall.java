@@ -13,14 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 public class Wall {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(length = 1000)
     private String name;
 
     @ManyToMany
-    @JoinTable(name="wall_inventory")
+    @JoinTable(name = "wall_inventory")
     @OrderColumn(name = "bin", nullable = false)
     private List<Piece> pieces;
 }

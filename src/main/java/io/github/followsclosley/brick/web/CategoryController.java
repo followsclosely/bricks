@@ -17,8 +17,10 @@ import java.util.List;
 
 @RestController
 public class CategoryController {
-    @Autowired private CategoryRepository repository;
-    @Autowired private VersionedConverter converter;
+    @Autowired
+    private CategoryRepository repository;
+    @Autowired
+    private VersionedConverter converter;
 
     @GetMapping(value = "/{version}/category", produces = "application/json")
     Page<CategoryDto> getCategoriesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
