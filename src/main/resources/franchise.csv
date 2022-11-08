@@ -1,133 +1,150 @@
-Store Name,State
-#ARIZONA
-LEGO Store Arrowhead Towne Center,ARIZONA
-LEGO Store Chandler Fashion Center,ARIZONA
-#CALIFORNIA
-LEGO Store Downtown Disney District,CALIFORNIA
-LEGO Store Fashion Valley,CALIFORNIA
-LEGO Store Glendale Galleria,CALIFORNIA
-LEGO Store Hillsdale Shopping Center,CALIFORNIA
-LEGO Store Ontario Mills,CALIFORNIA
-LEGO Store South Coast Plaza,CALIFORNIA
-LEGO Store Stoneridge Mall,CALIFORNIA
-LEGO Store The Shops At Mission Viejo,CALIFORNIA
-LEGO Store UTC Mall,CALIFORNIA
-LEGO Store Westfield Galleria At Roseville,CALIFORNIA
-LEGO Store Westfield San Francisco Center,CALIFORNIA
-LEGO Store Westfield Topanga,CALIFORNIA
-LEGO Store Westfield Valley Fair,CALIFORNIA
-#COLORADO
-LEGO Store Colorado Mills,COLORADO
-LEGO Store Park Meadows,COLORADO
-#CONNECTICUT
-LEGO Store Danbury Fair,CONNECTICUT
-LEGO Store Westfarms Mall,CONNECTICUT
-#DELAWARE
-LEGO Store Christiana Mall,DELAWARE
-#FLORIDA
-LEGO Store Aventura Mall,FLORIDA
-LEGO Store Dadeland Mall,FLORIDA
-LEGO Store Disney Springs,FLORIDA
-LEGO Store Sawgrass Mills,FLORIDA
-LEGO Store St Johns Town Center,FLORIDA
-LEGO Store Town Center At Boca Raton,FLORIDA
-LEGO Store Westfield Brandon Mall,FLORIDA
-#GEORGIA
-LEGO Store North Point Mall,GEORGIA
-LEGO Store Sugarloaf Mills,GEORGIA
-#HAWAII
-LEGO Store Ala Moana Center,HAWAII
-#ILLINOIS
-LEGO Store Gurnee Mills,ILLINOIS
-LEGO Store Northbrook Court,ILLINOIS
-LEGO Store Orland Square,ILLINOIS
-LEGO Store Water Tower Place,ILLINOIS
-LEGO Store Woodfield Mall,ILLINOIS
-#INDIANA
-LEGO Store Castleton Square,INDIANA
-#KANSAS
-LEGO Store Oak Park Mall,KANSAS
-#KENTUCKY
-LEGO Store Oxmoor Center,KENTUCKY
-#LOUISIANA
-LEGO Store Lakeside Mall,LOUISIANA
-#MARYLAND
-LEGO Store Arundel Mills,MARYLAND
-LEGO Store Westfield Annapolis,MARYLAND
-LEGO Store Westfield Montgomery,MARYLAND
-#MASSACHUSETTS
-LEGO Store Burlington Mall,MASSACHUSETTS
-LEGO Store Natick Mall,MASSACHUSETTS
-LEGO Store Northshore Mall,MASSACHUSETTS
-LEGO Store South Shore Plaza,MASSACHUSETTS
-#MICHIGAN
-LEGO Store Somerset Collection, MICHIGAN
-#MINNESOTA
-LEGO Store Mall Of America, MINNESOTA
-#MISSOURI
-LEGO Store West County Center, MISSOURI
-#NEVADA
-LEGO Store Fashion Show Mall,NEVADA
-#NEW HAMPSHIRE
-LEGO Store Pheasant Lane Mall (Opening Soon),NEW HAMPSHIRE
-#NEW JERSEY
-LEGO Store Bridgewater Commons,NEW JERSEY
-LEGO Store Cherry Hill Mall,NEW JERSEY
-LEGO Store Freehold Raceway Mall,NEW JERSEY
-LEGO Store Garden State Plaza,NEW JERSEY
-LEGO Store The Mills At Jersey Gardens,NEW JERSEY
-#NEW YORK
-LEGO Store Crossgates Mall,NEW YORK
-LEGO Store Destiny USA,NEW YORK
-LEGO Store Eastview Mall,NEW YORK
-LEGO Store Fifth Avenue,NEW YORK
-LEGO Store Flatiron District,NEW YORK
-LEGO Store Palisades Center,NEW YORK
-LEGO Store Roosevelt Field Mall,NEW YORK
-LEGO Store Smith Haven Mall,NEW YORK
-LEGO Store Staten Island Mall,NEW YORK
-LEGO Store The Westchester,NEW YORK
-LEGO Store Walden Galleria,NEW YORK
-#NORTH CAROLINA
-LEGO Store Concord Mills,NORTH CAROLINA
-LEGO Store Crabtree Valley Mall,NORTH CAROLINA
-LEGO Store Southpark Mall,NORTH CAROLINA
-#OHIO
-LEGO Store Beachwood Place,OHIO
-LEGO Store Easton Town Center,OHIO
-LEGO Store Kenwood Towne Centre,OHIO
-#OKLAHOMA
-LEGO Store Penn Square Mall,OKLAHOMA
-#OREGON
-LEGO Store Washington Square,OREGON
-#PENNSYLVANIA
-LEGO Store King Of Prussia Mall,PENNSYLVANIA
-LEGO Store Ross Park Mall,PENNSYLVANIA
-#RHODE ISLAND
-LEGO Store Providence Place,RHODE ISLAND
-#SOUTH CAROLINA
-LEGO Store Haywood Mall,SOUTH CAROLINA
-#TENNESSEE
-LEGO Store Opry Mills Mall,TENNESSEE
-#TEXAS
-LEGO Store Barton Creek Square,TEXAS
-LEGO Store Baybrook Mall,TEXAS
-LEGO Store Houston Galleria,TEXAS
-LEGO Store La Plaza Mall,TEXAS
-LEGO Store North Star Mall,TEXAS
-LEGO Store Northpark Center,TEXAS
-LEGO Store Stonebriar Centre,TEXAS
-LEGO Store The Woodlands Mall,TEXAS
-LEGO Store Willowbrook Mall,TEXAS
-#UTAH
-LEGO Store Fashion Place Mall,UTAH
-#VIRGINIA
-LEGO Store Fashion Centre At Pentagon City,VIRGINIA
-LEGO Store Potomac Mills,VIRGINIA
-LEGO Store Tysons Corner,VIRGINIA
-#WASHINGTON
-LEGO Store Alderwood,WASHINGTON
-LEGO Store Bellevue Square Mall,WASHINGTON
-LEGO Store Westfield Southcenter,WASHINGTON
-#WISCONSIN
-LEGO Store Mayfair,WISCONSIN
+Store Name,Country,State
+#ARIZONA,,
+LEGO Store Arrowhead Towne Center,USA,ARIZONA
+LEGO Store Chandler Fashion Center,USA,ARIZONA
+#CALIFORNIA,,
+LEGO Store Downtown Disney District,USA,CALIFORNIA
+LEGO Store Fashion Valley,USA,CALIFORNIA
+LEGO Store Glendale Galleria,USA,CALIFORNIA
+LEGO Store Hillsdale Shopping Center,USA,CALIFORNIA
+LEGO Store Ontario Mills,USA,CALIFORNIA
+LEGO Store South Coast Plaza,USA,CALIFORNIA
+LEGO Store Stoneridge Mall,USA,CALIFORNIA
+LEGO Store The Shops At Mission Viejo,USA,CALIFORNIA
+LEGO Store UTC Mall,USA,CALIFORNIA
+LEGO Store Westfield Galleria At Roseville,USA,CALIFORNIA
+LEGO Store Westfield San Francisco Center,USA,CALIFORNIA
+LEGO Store Westfield Topanga,USA,CALIFORNIA
+LEGO Store Westfield Valley Fair,USA,CALIFORNIA
+#COLORADO,,
+LEGO Store Colorado Mills,USA,COLORADO
+LEGO Store Park Meadows,USA,COLORADO
+#CONNECTICUT,,
+LEGO Store Danbury Fair,USA,CONNECTICUT
+LEGO Store Westfarms Mall,USA,CONNECTICUT
+#DELAWARE,,
+LEGO Store Christiana Mall,USA,DELAWARE
+#FLORIDA,,
+LEGO Store Aventura Mall,USA,FLORIDA
+LEGO Store Dadeland Mall,USA,FLORIDA
+LEGO Store Disney Springs,USA,FLORIDA
+LEGO Store Sawgrass Mills,USA,FLORIDA
+LEGO Store St Johns Town Center,USA,FLORIDA
+LEGO Store Town Center At Boca Raton,USA,FLORIDA
+LEGO Store Westfield Brandon Mall,USA,FLORIDA
+#GEORGIA,,
+LEGO Store North Point Mall,USA,GEORGIA
+LEGO Store Sugarloaf Mills,USA,GEORGIA
+#HAWAII,,
+LEGO Store Ala Moana Center,USA,HAWAII
+#ILLINOIS,,
+LEGO Store Gurnee Mills,USA,ILLINOIS
+LEGO Store Northbrook Court,USA,ILLINOIS
+LEGO Store Orland Square,USA,ILLINOIS
+LEGO Store Water Tower Place,USA,ILLINOIS
+LEGO Store Woodfield Mall,USA,ILLINOIS
+#INDIANA,,
+LEGO Store Castleton Square,USA,INDIANA
+#KANSAS,,
+LEGO Store Oak Park Mall,USA,KANSAS
+#KENTUCKY,,
+LEGO Store Oxmoor Center,USA,KENTUCKY
+#LOUISIANA,USA,
+LEGO Store Lakeside Mall,USA,LOUISIANA
+#MARYLAND,,
+LEGO Store Arundel Mills,USA,MARYLAND
+LEGO Store Westfield Annapolis,USA,MARYLAND
+LEGO Store Westfield Montgomery,USA,MARYLAND
+#MASSACHUSETTS,,
+LEGO Store Burlington Mall,USA,MASSACHUSETTS
+LEGO Store Natick Mall,USA,MASSACHUSETTS
+LEGO Store Northshore Mall,USA,MASSACHUSETTS
+LEGO Store South Shore Plaza,USA,MASSACHUSETTS
+#MICHIGAN,,
+LEGO Store Somerset Collection,USA, MICHIGAN
+#MINNESOTA,,
+LEGO Store Mall Of America,USA, MINNESOTA
+#MISSOURI,,
+LEGO Store West County Center,USA, MISSOURI
+#NEVADA,,
+LEGO Store Fashion Show Mall,USA,NEVADA
+#NEW HAMPSHIRE,,
+LEGO Store Pheasant Lane Mall (Opening Soon),USA,NEW HAMPSHIRE
+#NEW JERSEY,,
+LEGO Store Bridgewater Commons,USA,NEW JERSEY
+LEGO Store Cherry Hill Mall,USA,NEW JERSEY
+LEGO Store Freehold Raceway Mall,USA,NEW JERSEY
+LEGO Store Garden State Plaza,USA,NEW JERSEY
+LEGO Store The Mills At Jersey Gardens,USA,NEW JERSEY
+#NEW YORK,,
+LEGO Store Crossgates Mall,USA,NEW YORK
+LEGO Store Destiny USA,USA,NEW YORK
+LEGO Store Eastview Mall,USA,NEW YORK
+LEGO Store Fifth Avenue,USA,NEW YORK
+LEGO Store Flatiron District,USA,NEW YORK
+LEGO Store Palisades Center,USA,NEW YORK
+LEGO Store Roosevelt Field Mall,USA,NEW YORK
+LEGO Store Smith Haven Mall,USA,NEW YORK
+LEGO Store Staten Island Mall,USA,NEW YORK
+LEGO Store The Westchester,USA,NEW YORK
+LEGO Store Walden Galleria,USA,NEW YORK
+#NORTH CAROLINA,,
+LEGO Store Concord Mills,USA,NORTH CAROLINA
+LEGO Store Crabtree Valley Mall,USA,NORTH CAROLINA
+LEGO Store Southpark Mall,USA,NORTH CAROLINA
+#OHIO,,
+LEGO Store Beachwood Place,USA,OHIO
+LEGO Store Easton Town Center,USA,OHIO
+LEGO Store Kenwood Towne Centre,USA,OHIO
+#OKLAHOMA,,
+LEGO Store Penn Square Mall,USA,OKLAHOMA
+#OREGON,,
+LEGO Store Washington Square,USA,OREGON
+#PENNSYLVANIA,,
+LEGO Store King Of Prussia Mall,USA,PENNSYLVANIA
+LEGO Store Ross Park Mall,USA,PENNSYLVANIA
+#RHODE ISLAND,,
+LEGO Store Providence Place,USA,RHODE ISLAND
+#SOUTH CAROLINA,,
+LEGO Store Haywood Mall,USA,SOUTH CAROLINA
+#TENNESSEE,USA,
+LEGO Store Opry Mills Mall,USA,TENNESSEE
+#TEXAS,,
+LEGO Store Barton Creek Square,USA,TEXAS
+LEGO Store Baybrook Mall,USA,TEXAS
+LEGO Store Houston Galleria,USA,TEXAS
+LEGO Store La Plaza Mall,USA,TEXAS
+LEGO Store North Star Mall,USA,TEXAS
+LEGO Store Northpark Center,USA,TEXAS
+LEGO Store Stonebriar Centre,USA,TEXAS
+LEGO Store The Woodlands Mall,USA,TEXAS
+LEGO Store Willowbrook Mall,USA,TEXAS
+#UTAH,,
+LEGO Store Fashion Place Mall,USA,UTAH
+#VIRGINIA,,
+LEGO Store Fashion Centre At Pentagon City,USA,VIRGINIA
+LEGO Store Potomac Mills,USA,VIRGINIA
+LEGO Store Tysons Corner,USA,VIRGINIA
+#WASHINGTON,,
+LEGO Store Alderwood,USA,WASHINGTON
+LEGO Store Bellevue Square Mall,USA,WASHINGTON
+LEGO Store Westfield Southcenter,USA,WASHINGTON
+#WISCONSIN,,
+LEGO Store Mayfair,USA,WISCONSIN
+#Canada,,
+LEGO® Store Carrefour Laval,Canada,
+LEGO® Store Cf Rideau Centre,Canada,
+LEGO® Store Chinook Center,Canada,
+LEGO® Store Fairview Mall,Canada,
+LEGO® Store Fairview Pointe Claire,Canada,
+LEGO® Store Guilford Town Centre,Canada,
+#Mexico,,
+LEGO® Store Altacia,Mexico,
+LEGO® Store Altaria,Mexico,
+LEGO® Store Averanda,Mexico,
+LEGO® Store Galerias Guadalajara,Mexico,
+LEGO® Store Galerias Pachuca,Mexico,
+LEGO® Store Galerias Queretaro,Mexico,
+LEGO® Store Galerías Monterrey,Mexico,
+LEGO® Store Galerías Saltillo,Mexico,
+LEGO® Store La Isla Cancun,Mexico,

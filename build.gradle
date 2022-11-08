@@ -15,18 +15,14 @@ repositories {
 }
 
 dependencies {
-    //implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-    //implementation 'org.hibernate:hibernate-ehcache:6.0.0.Alpha7'
-
-    implementation 'org.modelmapper:modelmapper:3.1.0'
-
-    implementation 'org.apache.commons:commons-csv:1.9.0'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
 
     runtimeOnly 'com.h2database:h2'
 

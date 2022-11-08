@@ -61,7 +61,13 @@ public class FranchiseLoader implements ApplicationRunner {
                     Franchise franchise = new Franchise();
                     franchise.setName(record.get(0));
                     if (record.getRecordNumber() > 1) {
-                        franchise.setAddress(Address.builder().district(record.get(1)).build());
+                        Address address = new Address();
+                        address.setCountry(record.get(1));
+                        if( record.size() > 2){
+                            address.setDistrict(record.get(2));
+                        }
+
+                        franchise.setAddress(address);
                     }
 
                     Wall wall = Wall.builder().name("Default").build();

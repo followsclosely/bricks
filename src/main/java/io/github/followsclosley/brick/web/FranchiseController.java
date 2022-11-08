@@ -29,6 +29,11 @@ public class FranchiseController {
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 
+    @GetMapping(value = "/{version}/franchise-countries", produces = "application/json")
+    List<String> getCountries(){
+        return repository.getCountries();
+    }
+
     @GetMapping(value = "/{version}/franchise/{id}", produces = "application/json")
     FranchiseDto getElement(@PathVariable(name = "version") String version, @PathVariable String id) {
         Franchise franchise = repository.getReferenceById(id);
