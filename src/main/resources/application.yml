@@ -35,4 +35,5 @@ catalog:
       categories: classpath:bricklink/categories.txt
       elements: classpath:bricklink/Parts.txt
       piece: classpath:bricklink/codes.txt
+    country: classpath:countries.csv
     franchise: classpath:franchise.csv

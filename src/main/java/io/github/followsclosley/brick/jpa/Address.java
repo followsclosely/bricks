@@ -1,6 +1,7 @@
 package io.github.followsclosley.brick.jpa;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Embeddable
@@ -29,5 +30,6 @@ public class Address {
      */
     private String postalArea;
 
-    private String country;
+    @ManyToOne
+    private Country country;
 }

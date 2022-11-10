@@ -28,35 +28,28 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-@Order(5)
+@Order(1)
 @Component
 @ConditionalOnExpression("${catalog.load-on-startup:false}")
-public class FranchiseLoader implements ApplicationRunner {
+public class CountryLoader implements ApplicationRunner {
 
-    final Logger logger = LoggerFactory.getLogger(FranchiseLoader.class);
+    final Logger logger = LoggerFactory.getLogger(CountryLoader.class);
 
-    @Value("${catalog.resources.franchise}")
+    @Value("${catalog.resources.country}")
     private Resource resource;
 
     @Autowired
-    private PieceRepository pieceRepository;
-
-    @Autowired
-    private FranchiseRepository franchiseRepository;
-
-    @Autowired
-    private CountryRepository countryRepository;
+    private CountryRepository repository;
 
     /**
-     * A tab delimited file containing all categories.
-     * Category ID	Category Name	Number	Name
+     * A tab delimited file containing all countries.
+     * Source: https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv
+     *
+     * name,alpha-2,alpha-3,country-code,iso_3166-2,region,sub-region,intermediate-region,region-code,sub-region-code,intermediate-region-code
      *
      * @throws IOException if anything goes wrong with reading the resource
      */
     public void run(ApplicationArguments args) throws Exception {
-
-        //Build the cache of country codes.
-        Map<String, Country> countries = new HashMap<>();
 
         int counter = 0;
 
@@ -70,33 +63,21 @@ public class FranchiseLoader implements ApplicationRunner {
         try (InputStream in = resource.getInputStream(); Reader reader = new InputStreamReader(in)) {
             for (CSVRecord record : csvParser.parse(reader)) {
                 try {
-                    Franchise franchise = new Franchise();
-                    franchise.setName(record.get(0));
-                    if (record.size() > 1) {
-                        Address address = new Address();
-
-                        Country country = countries.computeIfAbsent(record.get(1), countryRepository::getReferenceById);
-                        address.setCountry(country);
-                        if( record.size() > 2){
-                            address.setDistrict(record.get(2));
-                        }
-
-                        franchise.setAddress(address);
-                    }
-
-                    Wall wall = Wall.builder().name("Default").build();
-                    wall.setPieces(Arrays.asList(pieceRepository.getReferenceById("4211575")));
-                    franchise.setWalls(Arrays.asList(wall));
-
-                    franchiseRepository.save(franchise);
+                    Country country = new Country();
+                    country.setName(record.get(0));
+                    country.setAlpha2(record.get(1));
+                    country.setAlpha3(record.get(2));
+                    country.setRegion(record.get(5));
+                    country.setSubRegion(record.get(6));
+                    repository.save(country);
                     counter++;
                 } catch (Exception e) {
-                    logger.error("Error loading franchise: {}", record, e);
+                    logger.error("Error loading country: {}", record, e);
                 }
             }
         }
 
-        logger.info("Inserted {} franchises.", counter);
+        logger.info("Inserted {} countries.", counter);
     }
 
 //    public void xrun(ApplicationArguments args) throws Exception {
