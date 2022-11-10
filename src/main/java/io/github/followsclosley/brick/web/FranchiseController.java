@@ -1,6 +1,7 @@
 package io.github.followsclosley.brick.web;
 
 import io.github.followsclosley.brick.jpa.Franchise;
+import io.github.followsclosley.brick.jpa.repository.NativeQueryRepository;
 import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
 import io.github.followsclosley.brick.web.converter.VersionedConverter;
 import io.github.followsclosley.brick.web.dto.FranchiseDto;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class FranchiseController {
@@ -22,6 +24,9 @@ public class FranchiseController {
     @Autowired
     private VersionedConverter converter;
 
+    @Autowired
+    NativeQueryRepository nativeQueryRepository;
+
     @GetMapping(value = "/{version}/franchise", produces = "application/json")
     Page<FranchiseDto> getFranchisesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
         Page<Franchise> page = repository.findByNameContainingIgnoreCase(name, pageable);
@@ -29,9 +34,9 @@ public class FranchiseController {
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 
-    @GetMapping(value = "/{version}/franchise-countries", produces = "application/json")
-    List<String> getCountries(){
-        return repository.getCountries();
+    @GetMapping(value = "/{version}/query/{name}", produces = "application/json")
+    List<Map<String,Object>> nativeQueryRepository(@PathVariable(name = "version") String version, @PathVariable("name") String name){
+        return nativeQueryRepository.getSummary(name);
     }
 
     @GetMapping(value = "/{version}/franchise/{id}", produces = "application/json")

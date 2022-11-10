@@ -6,7 +6,7 @@ spring:
     username: sa
     password: password
   jpa:
-    show-sql: false
+    show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
     #    properties:
     #      hibernate.cache.use_second_level_cache: true
@@ -27,8 +27,14 @@ spring:
       write-dates-as-timestamps: false
       indent_output: true
 
+bricks:
+  queries:
+    countries:
+      sql: "select c.ALPHA3, count(*) from franchise f join country c ON c.ALPHA3 = f.COUNTRY_ALPHA3 GROUP BY c.ALPHA3"
+      columns: "Country,Stores"
+
 catalog:
-  load-on-startup: true
+  load-on-startup: false
   resources:
     bricklink: #Resources must be loaded in this order
       colors: classpath:bricklink/colors.txt

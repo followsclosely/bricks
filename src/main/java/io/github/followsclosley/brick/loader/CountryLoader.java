@@ -1,12 +1,7 @@
-package io.github.followsclosley.brick.mock;
+package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Address;
 import io.github.followsclosley.brick.jpa.Country;
-import io.github.followsclosley.brick.jpa.Franchise;
-import io.github.followsclosley.brick.jpa.Wall;
 import io.github.followsclosley.brick.jpa.repository.CountryRepository;
-import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
-import io.github.followsclosley.brick.jpa.repository.PieceRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
@@ -24,9 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 @Order(1)
 @Component

@@ -1,7 +1,9 @@
-package io.github.followsclosley.brick.mock;
+package io.github.followsclosley.brick.loader;
 
 import io.github.followsclosley.brick.jpa.Category;
+import io.github.followsclosley.brick.jpa.Element;
 import io.github.followsclosley.brick.jpa.repository.CategoryRepository;
+import io.github.followsclosley.brick.jpa.repository.ElementRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
@@ -19,27 +21,33 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-@Order(2)
+@Order(3)
 @Component
 @ConditionalOnExpression("${catalog.load-on-startup:false}")
-public class CategoryLoader implements ApplicationRunner {
+public class ElementLoader implements ApplicationRunner {
 
-    final Logger logger = LoggerFactory.getLogger(CategoryLoader.class);
+    final Logger logger = LoggerFactory.getLogger(ElementLoader.class);
 
-    @Value("${catalog.resources.bricklink.categories}")
+    @Value("${catalog.resources.bricklink.elements}")
     private Resource resource;
 
     @Autowired
-    private CategoryRepository repository;
+    private CategoryRepository categoryRepository;
+    @Autowired
+    private ElementRepository elementRepository;
 
     /**
      * A tab delimited file containing all categories.
-     * Category ID	Category Name
+     * Category ID	Category Name	Number	Name
      *
      * @throws IOException if anything goes wrong with reading the resource
      */
     public void run(ApplicationArguments args) throws Exception {
+
+        Map<String, Category> categories = categoryRepository.findAll().stream().collect(Collectors.toMap(Category::getId, c -> c));
 
         int counter = 0;
 
@@ -51,12 +59,19 @@ public class CategoryLoader implements ApplicationRunner {
 
         try (InputStream in = resource.getInputStream(); Reader reader = new InputStreamReader(in)) {
             for (CSVRecord record : csvParser.parse(reader)) {
-                Category category = new Category(record.get(0), record.get(1));
-                repository.save(category);
+                Element element = new Element();
+                element.setId(record.get(2));
+                element.setName(record.get(3));
+                element.setCategory(categories.get(record.get(0)));
+
+                elementRepository.save(element);
                 counter++;
+                if (counter % 10000 == 0) {
+                    logger.info("Inserted {} elements so far...", counter);
+                }
             }
         }
 
-        logger.info("Inserted {} categories.", counter);
+        logger.info("Inserted {} elements.", counter);
     }
 }

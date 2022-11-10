@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.mock;
+package io.github.followsclosley.brick.loader;
 
 import io.github.followsclosley.brick.jpa.Address;
 import io.github.followsclosley.brick.jpa.Country;
