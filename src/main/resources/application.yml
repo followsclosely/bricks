@@ -16,7 +16,7 @@ spring:
       format_sql: true
   #    initialization-mode: never
   #    schema: initial-schema.sql
-  #    data: initial-data.sql
+      data: initial-data.sql
   h2:
     #Starts the Web Console at http://localhost:8080/h2-console
     console.enabled: true

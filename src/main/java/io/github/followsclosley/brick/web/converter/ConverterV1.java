@@ -14,6 +14,7 @@ public class ConverterV1 extends ModelMapperConverter {
         addMapping(ElementDto.class, ElementDtoV1.class);
         addMapping(PieceDto.class, PieceDtoV1.class);
         addMapping(FranchiseDto.class, FranchiseDtoV1.class);
+        addMapping(AssemblageDto.class, AssemblageDtoV1.class);
         mapper.addMappings(new PropertyMap<Franchise, FranchiseDtoV1>() {
             protected void configure() {
                 skip().setWalls(null);

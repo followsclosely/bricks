@@ -24,6 +24,7 @@ public class CategoryController {
 
     @GetMapping(value = "/{version}/category", produces = "application/json")
     Page<CategoryDto> getCategoriesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
+        
         Page<Category> page = repository.query(name, pageable);
         List<CategoryDto> colors = page.getContent().stream().map(c -> converter.map(c, CategoryDto.class, version)).toList();
         return new PageImpl<>(colors, page.getPageable(), page.getTotalElements());
