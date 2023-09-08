@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa.repository;
+package io.github.followsclosley.brick.data.repository;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

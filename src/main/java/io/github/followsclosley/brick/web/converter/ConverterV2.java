@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.web.converter;
 
-import io.github.followsclosley.brick.jpa.Franchise;
+import io.github.followsclosley.brick.data.Franchise;
 import io.github.followsclosley.brick.web.dto.CategoryDto;
 import io.github.followsclosley.brick.web.dto.ColorDto;
 import io.github.followsclosley.brick.web.dto.ElementDto;

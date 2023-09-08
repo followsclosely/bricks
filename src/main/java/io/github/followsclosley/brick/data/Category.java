@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,10 +12,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Country {
-    private String alpha2;
-    @Id private String alpha3;
+public class Category {
+    @Id
+    private String id;
     private String name;
-    private String region;
-    private String subRegion;
 }

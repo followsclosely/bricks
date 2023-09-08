@@ -1,8 +1,8 @@
 package io.github.followsclosley.brick.web;
 
-import io.github.followsclosley.brick.jpa.Franchise;
-import io.github.followsclosley.brick.jpa.repository.NativeQueryRepository;
-import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
+import io.github.followsclosley.brick.data.Franchise;
+import io.github.followsclosley.brick.data.repository.NativeQueryRepository;
+import io.github.followsclosley.brick.data.repository.FranchiseRepository;
 import io.github.followsclosley.brick.web.converter.VersionedConverter;
 import io.github.followsclosley.brick.web.dto.FranchiseDto;
 import org.springframework.beans.factory.annotation.Autowired;

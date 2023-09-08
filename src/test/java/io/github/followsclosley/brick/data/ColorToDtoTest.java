@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.data;
 
 import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import org.junit.jupiter.api.Test;

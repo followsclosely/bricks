@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

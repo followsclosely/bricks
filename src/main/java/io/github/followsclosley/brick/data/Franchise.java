@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa;
+package io.github.followsclosley.brick.data;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 public class Franchise {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +24,6 @@ public class Franchise {
 
     private Address address;
 
-    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    //@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Instant lastUpdate;
 }

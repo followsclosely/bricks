@@ -1,6 +1,6 @@
-package io.github.followsclosley.brick.jpa.repository;
+package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.jpa.Category;
+import io.github.followsclosley.brick.data.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

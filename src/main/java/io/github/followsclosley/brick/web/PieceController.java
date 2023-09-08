@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.web;
 
-import io.github.followsclosley.brick.jpa.Piece;
-import io.github.followsclosley.brick.jpa.repository.PieceRepository;
+import io.github.followsclosley.brick.data.Piece;
+import io.github.followsclosley.brick.data.repository.PieceRepository;
 import io.github.followsclosley.brick.web.converter.VersionedConverter;
 import io.github.followsclosley.brick.web.dto.PieceDto;
 import org.springframework.beans.factory.annotation.Autowired;

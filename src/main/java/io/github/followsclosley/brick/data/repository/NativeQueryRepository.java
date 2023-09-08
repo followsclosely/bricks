@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.jpa.repository;
+package io.github.followsclosley.brick.data.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

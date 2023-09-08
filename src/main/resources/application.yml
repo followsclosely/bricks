@@ -14,7 +14,7 @@ spring:
     hibernate:
       ddl-auto: update
       format_sql: true
-  #    initialization-mode: never
+      initialization-mode: always
   #    schema: initial-schema.sql
       data: initial-data.sql
   h2:

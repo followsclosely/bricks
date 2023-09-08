@@ -1,14 +1,13 @@
 package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Category;
-import io.github.followsclosley.brick.jpa.repository.CategoryRepository;
+import io.github.followsclosley.brick.data.Category;
+import io.github.followsclosley.brick.data.repository.CategoryRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;

@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.web;
 
-import io.github.followsclosley.brick.jpa.Color;
-import io.github.followsclosley.brick.jpa.repository.ColorRepository;
+import io.github.followsclosley.brick.data.Color;
+import io.github.followsclosley.brick.data.repository.ColorRepository;
 import io.github.followsclosley.brick.web.converter.VersionedConverter;
 import io.github.followsclosley.brick.web.dto.ColorDto;
 import org.springframework.beans.factory.annotation.Autowired;

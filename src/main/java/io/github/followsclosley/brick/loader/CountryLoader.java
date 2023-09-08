@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Country;
-import io.github.followsclosley.brick.jpa.repository.CountryRepository;
+import io.github.followsclosley.brick.data.Country;
+import io.github.followsclosley.brick.data.repository.CountryRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

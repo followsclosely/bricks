@@ -1,12 +1,12 @@
 package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Address;
-import io.github.followsclosley.brick.jpa.Country;
-import io.github.followsclosley.brick.jpa.Franchise;
-import io.github.followsclosley.brick.jpa.Wall;
-import io.github.followsclosley.brick.jpa.repository.CountryRepository;
-import io.github.followsclosley.brick.jpa.repository.FranchiseRepository;
-import io.github.followsclosley.brick.jpa.repository.PieceRepository;
+import io.github.followsclosley.brick.data.Address;
+import io.github.followsclosley.brick.data.Country;
+import io.github.followsclosley.brick.data.Franchise;
+import io.github.followsclosley.brick.data.Wall;
+import io.github.followsclosley.brick.data.repository.CountryRepository;
+import io.github.followsclosley.brick.data.repository.FranchiseRepository;
+import io.github.followsclosley.brick.data.repository.PieceRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

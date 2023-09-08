@@ -1,18 +1,9 @@
-package io.github.followsclosley.brick.jpa.repository;
+package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.jpa.Franchise;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
+import io.github.followsclosley.brick.data.Franchise;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static java.util.Map.entry;
 
 public interface FranchiseRepository extends JpaRepository<Franchise, String> {
 

@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Color;
-import io.github.followsclosley.brick.jpa.repository.ColorRepository;
+import io.github.followsclosley.brick.data.Color;
+import io.github.followsclosley.brick.data.repository.ColorRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;

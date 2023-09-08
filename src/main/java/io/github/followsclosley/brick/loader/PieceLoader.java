@@ -1,11 +1,11 @@
 package io.github.followsclosley.brick.loader;
 
-import io.github.followsclosley.brick.jpa.Color;
-import io.github.followsclosley.brick.jpa.Element;
-import io.github.followsclosley.brick.jpa.Piece;
-import io.github.followsclosley.brick.jpa.repository.ColorRepository;
-import io.github.followsclosley.brick.jpa.repository.ElementRepository;
-import io.github.followsclosley.brick.jpa.repository.PieceRepository;
+import io.github.followsclosley.brick.data.Color;
+import io.github.followsclosley.brick.data.Element;
+import io.github.followsclosley.brick.data.Piece;
+import io.github.followsclosley.brick.data.repository.ColorRepository;
+import io.github.followsclosley.brick.data.repository.ElementRepository;
+import io.github.followsclosley.brick.data.repository.PieceRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
