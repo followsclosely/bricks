@@ -26,19 +26,20 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    implementation 'com.google.cloud:spring-cloud-gcp-starter'
-    implementation 'com.google.cloud:spring-cloud-gcp-starter-storage'
-    implementation 'com.google.cloud:spring-cloud-gcp-starter-data-datastore'
+    //implementation 'com.google.cloud:spring-cloud-gcp-starter'
+    //implementation 'com.google.cloud:spring-cloud-gcp-starter-storage'
+    //implementation 'com.google.cloud:spring-cloud-gcp-starter-data-datastore'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     //implementation 'org.springframework.boot:spring-boot-starter-data-data'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-    implementation 'org.springframework.shell:spring-shell-starter'
-
-
+    //implementation 'org.springframework.shell:spring-shell-starter'
+    
     implementation 'org.modelmapper:modelmapper:3.1.0'
     implementation 'org.apache.commons:commons-csv:1.9.0'
+
+    implementation 'io.hypersistence:hypersistence-utils-hibernate-62:3.5.3'
 
     runtimeOnly 'com.h2database:h2'
 
@@ -47,9 +48,9 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "com.google.cloud:spring-cloud-gcp-dependencies:${springCloudGcpVersion}"
+        //mavenBom "com.google.cloud:spring-cloud-gcp-dependencies:${springCloudGcpVersion}"
         mavenBom "org.springframework.shell:spring-shell-dependencies:${springShellVersion}"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        //mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 
