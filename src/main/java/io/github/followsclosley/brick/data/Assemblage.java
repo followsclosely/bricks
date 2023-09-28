@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.Type;
 
 import java.io.IOException;
+import java.time.Instant;
 
 @Entity
 @Getter

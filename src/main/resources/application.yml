@@ -34,7 +34,7 @@ bricks:
       columns: "Country,Stores"
 
 catalog:
-  load-on-startup: false
+  load-on-startup: true
   resources:
     bricklink: #Resources must be loaded in this order
       colors: classpath:bricklink/colors.txt
