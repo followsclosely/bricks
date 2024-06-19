@@ -1,13 +1,11 @@
 package io.github.followsclosley.brick.data;
 
 import io.hypersistence.utils.hibernate.type.json.JsonType;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 import org.hibernate.annotations.Type;
-
-import java.io.IOException;
-import java.time.Instant;
 
 @Entity
 @Getter

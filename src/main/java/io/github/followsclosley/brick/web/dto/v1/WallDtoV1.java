@@ -1,6 +1,5 @@
 package io.github.followsclosley.brick.web.dto.v1;
 
-import io.github.followsclosley.brick.web.dto.WallDto;
 import lombok.*;
 
 import java.util.List;
@@ -11,9 +10,8 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class WallDtoV1 implements WallDto {
+public class WallDtoV1 {
     private String id;
     private String name;
-
     private List<PieceDtoV1> pieces;
 }

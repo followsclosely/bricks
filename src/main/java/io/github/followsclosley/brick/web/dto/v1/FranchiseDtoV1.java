@@ -1,6 +1,5 @@
 package io.github.followsclosley.brick.web.dto.v1;
 
-import io.github.followsclosley.brick.web.dto.FranchiseDto;
 import lombok.*;
 
 import java.time.Instant;
@@ -12,7 +11,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FranchiseDtoV1 implements FranchiseDto {
+public class FranchiseDtoV1 {
     private String id;
     private String name;
     private AddressDtoV1 address;

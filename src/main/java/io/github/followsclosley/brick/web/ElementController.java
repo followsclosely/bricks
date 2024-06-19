@@ -2,8 +2,8 @@ package io.github.followsclosley.brick.web;
 
 import io.github.followsclosley.brick.data.Element;
 import io.github.followsclosley.brick.data.repository.ElementRepository;
-import io.github.followsclosley.brick.web.converter.VersionedConverter;
-import io.github.followsclosley.brick.web.dto.ElementDto;
+import io.github.followsclosley.brick.web.converter.ElementMapperV1;
+import io.github.followsclosley.brick.web.dto.v1.ElementDtoV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,17 +20,17 @@ public class ElementController {
     @Autowired
     private ElementRepository repository;
     @Autowired
-    private VersionedConverter converter;
+    private ElementMapperV1 converter;
 
     @GetMapping(value = "/{version}/element", produces = "application/json")
-    Page<ElementDto> getElementsByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
+    Page<ElementDtoV1> getElementsByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
         Page<Element> page = repository.findByNameContainingIgnoreCase(name, pageable);
-        List<ElementDto> parts = page.getContent().stream().map(e -> converter.map(e, ElementDto.class, version)).toList();
+        List<ElementDtoV1> parts = page.getContent().stream().map(e -> converter.toElementDto(e)).toList();
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 
     @GetMapping(value = "/{version}/element/{id}", produces = "application/json")
-    ElementDto getElement(@PathVariable(name = "version") String version, @PathVariable String id) {
-        return converter.map(repository.getReferenceById(id), ElementDto.class, version);
+    ElementDtoV1 getElement(@PathVariable(name = "version") String version, @PathVariable String id) {
+        return converter.toElementDto(repository.getReferenceById(id));
     }
 }

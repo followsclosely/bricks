@@ -1,6 +1,5 @@
 package io.github.followsclosley.brick.web.dto.v1;
 
-import io.github.followsclosley.brick.web.dto.ColorDto;
 import lombok.*;
 
 @Getter
@@ -9,7 +8,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressDtoV1 implements ColorDto {
+public class AddressDtoV1 {
     private String city;
 
     /**
