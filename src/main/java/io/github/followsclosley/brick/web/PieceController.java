@@ -1,8 +1,10 @@
 package io.github.followsclosley.brick.web;
 
+import io.github.followsclosley.brick.data.Color;
 import io.github.followsclosley.brick.data.Piece;
 import io.github.followsclosley.brick.data.repository.PieceRepository;
 import io.github.followsclosley.brick.web.converter.VersionedMapper;
+import io.github.followsclosley.brick.web.converter.VersionedMapperFactory;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
@@ -24,27 +26,17 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class PieceController {
     private final PieceRepository repository;
-    private final ApplicationContext context;
-    private Map<String, VersionedMapper<Piece, ?>> mappers;
-
-    @PostConstruct
-    public void init() {
-        mappers = context.getBeansOfType(VersionedMapper.class).values()
-                .stream()
-                .collect(Collectors.toMap(VersionedMapper::getVersion, Function.identity()));
-    }
+    private final VersionedMapperFactory<Piece> mapper;
 
     @GetMapping(value = "/{version}/piece", produces = "application/json")
     Page<?> getPiecesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
-        VersionedMapper<Piece, ?> mapper = mappers.get(version);
         Page<Piece> page = repository.findByElementNameContainingIgnoreCase(name, pageable);
-        List parts = page.getContent().stream().map(e -> mapper.map(e)).toList();
+        List parts = page.getContent().stream().map(piece -> mapper.map(piece, version)).toList();
         return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
     }
 
     @GetMapping(value = "/{version}/piece/{id}", produces = "application/json")
     ResponseEntity<?> getPiece(@PathVariable(name = "version") String version, @PathVariable String id) {
-        VersionedMapper<Piece, ?> mapper = mappers.get(version);
-        return ResponseEntity.ok(mapper.map(repository.getReferenceById(id)));
+        return ResponseEntity.ok(mapper.map(repository.getReferenceById(id), version));
     }
 }
