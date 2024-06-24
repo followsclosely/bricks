@@ -1,11 +1,12 @@
 package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.data.Color;
+import io.github.followsclosley.brick.data.Theme;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface ColorRepository extends JpaRepository<Color, String> {
-    Page<Color> findByNameLike(@Param("name") String name, Pageable pageable);
+public interface ThemeRepository extends JpaRepository<Theme, String> {
+    Page<Theme> findByNameLike(String name, Pageable pageable);
 }

@@ -2,29 +2,25 @@ package io.github.followsclosley.brick.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Element {
+public class Inventory {
     @Id
     private String id;
+    private String version;
 
-    @ManyToOne
-    @JoinColumn(name = "part_id")
-    private Part part;
 
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
+    private List<Minifig> minifigs;
 
-    private String design;
+    private List<InventoryPart> parts;
 }

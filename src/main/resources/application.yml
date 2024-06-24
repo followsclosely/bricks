@@ -6,7 +6,7 @@ spring:
     username: sa
     password: password
   jpa:
-    show-sql: true
+    show-sql: false
     database-platform: org.hibernate.dialect.H2Dialect
     #    properties:
     #      hibernate.cache.use_second_level_cache: true
@@ -16,7 +16,12 @@ spring:
       format_sql: true
       initialization-mode: always
   #    schema: initial-schema.sql
-      data: initial-data.sql
+  #    data: initial-data.sql
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
   h2:
     #Starts the Web Console at http://localhost:8080/h2-console
     console.enabled: true
@@ -34,7 +39,7 @@ bricks:
       columns: "Country,Stores"
 
 catalog:
-  load-on-startup: false
+  load-on-startup: true
   resources:
     bricklink: #Resources must be loaded in this order
       colors: classpath:bricklink/colors.txt

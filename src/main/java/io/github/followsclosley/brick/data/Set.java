@@ -9,22 +9,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "lego_set")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Element {
+public class Set {
     @Id
     private String id;
-
+    private String name;
+    private int releaseYear;
     @ManyToOne
-    @JoinColumn(name = "part_id")
-    private Part part;
-
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
-
-    private String design;
+    @JoinColumn(name = "theme_id")
+    private Theme theme;
+    private int partCount;
+    private String imageUrl;
 }

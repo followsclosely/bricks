@@ -18,5 +18,5 @@ public class Color {
     private String id;
     private String name;
     private String rgb;
-    private String parts;
+    private Boolean transparent;
 }

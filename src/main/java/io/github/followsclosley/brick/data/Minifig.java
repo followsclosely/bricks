@@ -2,8 +2,6 @@ package io.github.followsclosley.brick.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,17 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Element {
+public class Minifig {
     @Id
     private String id;
-
-    @ManyToOne
-    @JoinColumn(name = "part_id")
-    private Part part;
-
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
-
-    private String design;
+    private String name;
+    private int partCount;
+    private String imageUrl;
 }

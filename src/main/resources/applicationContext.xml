@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+          http://camel.apache.org/schema/spring
+          http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="rebrickable-theme">
+            <from uri="timer:theme?repeatCount=1" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/themes.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:themeLoader" />
+        </route>
+
+        <route id="rebrickable-color">
+            <from uri="timer:color?repeatCount=1&amp;delay=5000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/colors.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:colorLoader" />
+        </route>
+
+        <route id="rebrickable-categories">
+            <from uri="timer:categories?repeatCount=1&amp;delay=10000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/part_categories.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:categoryLoader" />
+        </route>
+
+        <route id="rebrickable-parts">
+            <from uri="timer:parts?repeatCount=1&amp;delay=15000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/parts.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:partLoader" />
+        </route>
+
+        <route id="rebrickable-elements">
+            <from uri="timer:elements?repeatCount=1&amp;delay=30000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/elements.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:elementLoader" />
+        </route>
+
+        <route id="rebrickable-sets">
+            <from uri="timer:sets?repeatCount=1&amp;delay=60000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/sets.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:setLoader" />
+        </route>
+
+        <route id="rebrickable-figs">
+            <from uri="timer:figs?repeatCount=1&amp;delay=60000" />
+            <to uri="https://cdn.rebrickable.com/media/downloads/minifigs.csv.gz" />
+            <unmarshal><gzipDeflater/></unmarshal>
+            <to uri="bean:minifigLoader" />
+        </route>
+
+    </camelContext>
+
+</beans>

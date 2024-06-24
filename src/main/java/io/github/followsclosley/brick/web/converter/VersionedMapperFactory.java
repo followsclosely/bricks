@@ -1,8 +1,7 @@
 package io.github.followsclosley.brick.web.converter;
 
-import io.github.followsclosley.brick.data.Color;
-import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;

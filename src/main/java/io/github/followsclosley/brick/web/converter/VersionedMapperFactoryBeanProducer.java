@@ -1,13 +1,7 @@
 package io.github.followsclosley.brick.web.converter;
 
-import io.github.followsclosley.brick.data.Category;
-import io.github.followsclosley.brick.data.Color;
-import io.github.followsclosley.brick.data.Element;
-import io.github.followsclosley.brick.data.Piece;
-import io.github.followsclosley.brick.web.converter.v1.CategoryMapperV1;
-import io.github.followsclosley.brick.web.converter.v1.ColorMapperV1;
-import io.github.followsclosley.brick.web.converter.v1.ElementMapperV1;
-import io.github.followsclosley.brick.web.converter.v1.PieceMapperV1;
+import io.github.followsclosley.brick.data.*;
+import io.github.followsclosley.brick.web.converter.v1.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,8 +16,8 @@ public class VersionedMapperFactoryBeanProducer {
     }
 
     @Bean
-    public VersionedMapperFactory<Category> getCategoryMapper(List<? extends VersionedMapper<Category, ?>> mappers, CategoryMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Category>(mappers, defaultMapper);
+    public VersionedMapperFactory<Theme> getCategoryMapper(List<? extends VersionedMapper<Theme, ?>> mappers, ThemeMapperV1 defaultMapper){
+        return new VersionedMapperFactory<Theme>(mappers, defaultMapper);
     }
 
     @Bean
@@ -32,7 +26,17 @@ public class VersionedMapperFactoryBeanProducer {
     }
 
     @Bean
-    public VersionedMapperFactory<Piece> getPieceMapper(List<? extends VersionedMapper<Piece, ?>> mappers, PieceMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Piece>(mappers, defaultMapper);
+    public VersionedMapperFactory<Part> getPartMapper(List<? extends VersionedMapper<Part, ?>> mappers, PartMapperV1 defaultMapper){
+        return new VersionedMapperFactory<Part>(mappers, defaultMapper);
+    }
+
+    @Bean
+    public VersionedMapperFactory<Set> getSetMapper(List<? extends VersionedMapper<Set, ?>> mappers, SetMapperV1 defaultMapper){
+        return new VersionedMapperFactory<Set>(mappers, defaultMapper);
+    }
+
+    @Bean
+    public VersionedMapperFactory<Minifig> getMinifigMapper(List<? extends VersionedMapper<Minifig, ?>> mappers, MinifigMapperV1 defaultMapper){
+        return new VersionedMapperFactory<Minifig>(mappers, defaultMapper);
     }
 }

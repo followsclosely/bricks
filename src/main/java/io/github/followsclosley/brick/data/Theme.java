@@ -14,17 +14,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Element {
+public class Theme {
     @Id
     private String id;
+    private String name;
 
     @ManyToOne
-    @JoinColumn(name = "part_id")
-    private Part part;
-
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
-
-    private String design;
+    @JoinColumn(name = "parent_id")
+    private Theme parent;
 }
