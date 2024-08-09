@@ -11,32 +11,37 @@ import java.util.List;
 public class VersionedMapperFactoryBeanProducer {
 
     @Bean
-    public VersionedMapperFactory<Color> getColorMapper(List<? extends VersionedMapper<Color, ?>> mappers, ColorMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Color>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoColor> getColorMapper(List<? extends VersionedMapper<LegoColor, ?>> mappers, ColorMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 
     @Bean
-    public VersionedMapperFactory<Theme> getCategoryMapper(List<? extends VersionedMapper<Theme, ?>> mappers, ThemeMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Theme>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoTheme> getCategoryMapper(List<? extends VersionedMapper<LegoTheme, ?>> mappers, ThemeMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 
     @Bean
-    public VersionedMapperFactory<Element> getElementMapper(List<? extends VersionedMapper<Element, ?>> mappers, ElementMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Element>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoElement> getElementMapper(List<? extends VersionedMapper<LegoElement, ?>> mappers, ElementMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 
     @Bean
-    public VersionedMapperFactory<Part> getPartMapper(List<? extends VersionedMapper<Part, ?>> mappers, PartMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Part>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoPart> getPartMapper(List<? extends VersionedMapper<LegoPart, ?>> mappers, PartMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 
     @Bean
-    public VersionedMapperFactory<Set> getSetMapper(List<? extends VersionedMapper<Set, ?>> mappers, SetMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Set>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoSet> getSetMapper(List<? extends VersionedMapper<LegoSet, ?>> mappers, SetMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 
     @Bean
-    public VersionedMapperFactory<Minifig> getMinifigMapper(List<? extends VersionedMapper<Minifig, ?>> mappers, MinifigMapperV1 defaultMapper){
-        return new VersionedMapperFactory<Minifig>(mappers, defaultMapper);
+    public VersionedMapperFactory<LegoMinifig> getMinifigMapper(List<? extends VersionedMapper<LegoMinifig, ?>> mappers, MinifigMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
+    }
+
+    @Bean
+    public VersionedMapperFactory<LegoInventory> getLegoInventoryMapper(List<? extends VersionedMapper<LegoInventory, ?>> mappers, LegoInventoryMapperV1 defaultMapper){
+        return new VersionedMapperFactory<>(mappers, defaultMapper);
     }
 }

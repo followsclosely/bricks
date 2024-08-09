@@ -894,7 +894,7 @@ Category ID	Category Name	Number	Name
 53	Adventurers / Dino Island	5904-1	Microcopter
 53	Adventurers / Jungle	5905-1	Hidden Treasure
 53	Adventurers / Jungle	5906-1	Ruler of the Jungle
-53	Adventurers / Desert	5909-1	Treasure Raiders set with Mummy Storage Container
+53	Adventurers / Desert	5909-1	Treasure Raiders legoSet with Mummy Storage Container
 53	Adventurers / Dino Island	5911-1	Johnny Thunder's Plane
 53	Adventurers / Dino Island	5912-1	Hydrofoil
 53	Adventurers / Dino Island	5913-1	Dr. Lightning's Car
@@ -3417,8 +3417,8 @@ Category ID	Category Name	Number	Name
 34	Space / Classic Space	1969-2	Space Value Pack
 34	Space / Classic Space	1999-1	Space Value Pack
 124	Train / 9V / My Own Train	3740-1	Small Locomotive
-124	Train / 9V / My Own Train	3741-1	Large Locomotive (base unit without color trim elements)
-124	Train / 9V / My Own Train	3742-1	Tender Basis (without color trim elements)
+124	Train / 9V / My Own Train	3741-1	Large Locomotive (base unit without legoColor trim elements)
+124	Train / 9V / My Own Train	3742-1	Tender Basis (without legoColor trim elements)
 124	Train / 9V / My Own Train	3743-1	Locomotive Blue Bricks
 124	Train / 9V / My Own Train	3744-1	Locomotive Green Bricks
 124	Train / 9V / My Own Train	3745-1	Locomotive Black Bricks
@@ -4336,7 +4336,7 @@ Category ID	Category Name	Number	Name
 167	DUPLO / Supplemental	2198-1	3 Building Plates
 167	DUPLO / Rattles	2074-1	Rattle and Activity Gift Set
 166	Educational & Dacta / Soft Bricks	9022-1	Extra Soft Bricks
-166	Educational & Dacta / Soft Bricks	9021-1	Medium set of Soft Bricks
+166	Educational & Dacta / Soft Bricks	9021-1	Medium legoSet of Soft Bricks
 167	DUPLO / Toolo	1814-1	Toolo Box
 167	DUPLO / DUPLO, Train	2452-1	Choo Choo Train
 294	Primo	2078-1	DUPLO Baby Trial Size Set
@@ -4716,9 +4716,9 @@ Category ID	Category Name	Number	Name
 166	Educational & Dacta / DUPLO / Basic Set	1021-1	Basic Vehicles - 78 elements
 166	Educational & Dacta / DUPLO / Basic Set	1022-1	Mini Basic Bricks - 29 elements
 166	Educational & Dacta / DUPLO / DUPLO, Town / Farm	1024-1	Animals - 32 elements
-166	Educational & Dacta / DUPLO / Basic Set	1025-1	Figures and Furniture - 35 elements (for set 1026)
+166	Educational & Dacta / DUPLO / Basic Set	1025-1	Figures and Furniture - 35 elements (for legoSet 1026)
 166	Educational & Dacta / DUPLO / Supplemental	1026-1	Play Boxes from 2 yrs. - 2 elements
-166	Educational & Dacta / DUPLO / Basic Set	1027-1	Vehicles - 32 elements (fits with set 1046)
+166	Educational & Dacta / DUPLO / Basic Set	1027-1	Vehicles - 32 elements (fits with legoSet 1046)
 166	Educational & Dacta / Technic	1034-1	4.5V Technic Resource Set
 166	Educational & Dacta / Boat	1049-1	Ships - 247 elements and 1 poster
 166	Educational & Dacta / Universal Building Set	1050-1	Basic Pack
@@ -4755,7 +4755,7 @@ Category ID	Category Name	Number	Name
 166	Educational & Dacta / DUPLO / DUPLO, Train	9161-1	Duplo Train - 70 el, 4 act. crds
 166	Educational & Dacta / DUPLO / DUPLO, Town / Harbor	9162-1	Duplo Ships
 166	Educational & Dacta / DUPLO / DUPLO, Town / Airport	9163-1	Duplo Airport - 47 el. 4 act. cards (3 aircraft)
-166	Educational & Dacta / DUPLO / DUPLO, Town / Zoo	9164-1	Duplo Animals for Safari Park - 11 animals for set 9160
+166	Educational & Dacta / DUPLO / DUPLO, Town / Zoo	9164-1	Duplo Animals for Safari Park - 11 animals for legoSet 9160
 166	Educational & Dacta / DUPLO / DUPLO, Town / Traffic	9165-1	Duplo Vehicles - 26 elements
 166	Educational & Dacta / DUPLO / DUPLO, Train	9166-1	Duplo Battery Train - 65 elements in solid storage bin
 67	Town	78579-1	Action Pack (Target Exclusive)
@@ -4957,7 +4957,7 @@ Category ID	Category Name	Number	Name
 284	Ninja	cnminifigs-1	Ninja Minifigure Packs 3-Pack
 67	Town	tominifigs-1	Town Minifigure Packs 2-Pack
 174	Studios	nqstudios-1	Nesquik Studios Promo 3-Pack
-9	Castle / Knights Kingdom I	kkchrome-1	Knight's Kingdom Chrome Series (complete set)
+9	Castle / Knights Kingdom I	kkchrome-1	Knight's Kingdom Chrome Series (complete legoSet)
 473	Sports / Soccer	3401-2	Shoot 'n' Score - with ZIDANE / Adidas Minifigure
 65	Star Wars / Star Wars Episode 2	65153-1	Jango Fett's Slave I (Set 7153) with Carrying Case
 166	Educational & Dacta / Technic	9650-1	Scenery Resource Set
@@ -11158,7 +11158,7 @@ Category ID	Category Name	Number	Name
 746	Collectible Minifigures / The LEGO Movie	coltlm-1	Calamity Drone, The LEGO Movie (Complete Set with Stand and Accessories)
 167	DUPLO / DUPLO, Town / Police	10532-1	My First Police Set
 167	DUPLO	10567-1	Toddler Build and Boat Fun
-65	Star Wars / Mini / Star Wars Episode 4/5/6	kabstarwars-1	Kabaya Star Wars Mini 6-pack box set  (2x 6963-1,  2x 6964-1,  2x 6965-1)
+65	Star Wars / Mini / Star Wars Episode 4/5/6	kabstarwars-1	Kabaya Star Wars Mini 6-pack box legoSet  (2x 6963-1,  2x 6964-1,  2x 6965-1)
 808	MIXELS / MIXELS Series 1	41501-1	Vulk
 808	MIXELS / MIXELS Series 1	41502-1	Zorch
 808	MIXELS / MIXELS Series 1	41503-1	Krader
@@ -12055,11 +12055,11 @@ Category ID	Category Name	Number	Name
 166	Educational & Dacta / Service Packs / Technic	5003245-1	EV3 Technic Ball Pivots
 166	Educational & Dacta / Service Packs / Technic	5003246-1	EV3 Track Rubber Elements
 59	MINDSTORMS / NXT	10286-1	Color Sensor for Mindstorms NXT
-166	Educational & Dacta / Service Packs	5003225-1	StoryStarter Scenes Replacement Pack (17 element version)
-166	Educational & Dacta / Service Packs	5003226-1	StoryStarter Character Replacement Pack (185 element version)
-166	Educational & Dacta / Service Packs	5003227-1	StoryStarter Props Replacement Pack (160 element version)
-166	Educational & Dacta / Service Packs	5003228-1	StoryStarter Details Replacement Pack (255 element version)
-166	Educational & Dacta / Service Packs	5003229-1	StoryStarter Settings Replacement Pack (515 element version)
+166	Educational & Dacta / Service Packs	5003225-1	StoryStarter Scenes Replacement Pack (17 legoElement version)
+166	Educational & Dacta / Service Packs	5003226-1	StoryStarter Character Replacement Pack (185 legoElement version)
+166	Educational & Dacta / Service Packs	5003227-1	StoryStarter Props Replacement Pack (160 legoElement version)
+166	Educational & Dacta / Service Packs	5003228-1	StoryStarter Details Replacement Pack (255 legoElement version)
+166	Educational & Dacta / Service Packs	5003229-1	StoryStarter Settings Replacement Pack (515 legoElement version)
 166	Educational & Dacta / Service Packs	5003230-1	StoryStarter Spinner Cards and Stickers Replacement Pack
 166	Educational & Dacta	2000419-1	Green City Replacement Mats
 166	Educational & Dacta	2000425-1	LME EV3 Workshop Kit
@@ -12174,9 +12174,9 @@ Category ID	Category Name	Number	Name
 976	LEGO Brand / LEGO Brand Store / Model	40145-1	LEGO Store
 273	BIONICLE	comcon043-1	Tahu Mask - New York Comic Con 2014 VIP Event Exclusive blister pack
 771	Friends	561504-1	Mini Party foil pack
-166	Educational & Dacta / Service Packs	5003228-2	StoryStarter Details Replacement Pack (33 element version)
-166	Educational & Dacta / Service Packs	5003227-2	StoryStarter Props Replacement Pack (29 element version)
-166	Educational & Dacta / Service Packs	5003229-2	StoryStarter Settings Replacement Pack (48 element version)
+166	Educational & Dacta / Service Packs	5003228-2	StoryStarter Details Replacement Pack (33 legoElement version)
+166	Educational & Dacta / Service Packs	5003227-2	StoryStarter Props Replacement Pack (29 legoElement version)
+166	Educational & Dacta / Service Packs	5003229-2	StoryStarter Settings Replacement Pack (48 legoElement version)
 67	Town / City / Traffic	60097-1	City Square
 976	LEGO Brand / LEGO Brand Store / Monthly Model	40129-1	Monthly Mini Model Build Set - 2015 04 April, UFO polybag
 65	Star Wars / Ultimate Collector Series / Star Wars Episode 4/5/6	75095-1	TIE Fighter - UCS
@@ -13735,8 +13735,8 @@ Category ID	Category Name	Number	Name
 976	LEGO Brand / Promotional	lwp11-1	LEGO World Denmark Puzzle Promo 2017
 860	Dimensions / Dimensions Wave 8 / Super Heroes / The LEGO Batman Movie	71264-1	Story Pack - The LEGO Batman Movie: Play the Complete Movie
 860	Dimensions / Dimensions Wave 8 / Super Heroes / The LEGO Batman Movie	71344-1	Fun Pack - The LEGO Batman Movie (Excalibur Batman and Bionic Steed)
-166	Educational & Dacta / Service Packs	5003226-2	StoryStarter Character Replacement Pack (35 element version)
-166	Educational & Dacta / Service Packs	5003225-2	StoryStarter Scenes Replacement Pack (6 element version)
+166	Educational & Dacta / Service Packs	5003226-2	StoryStarter Character Replacement Pack (35 legoElement version)
+166	Educational & Dacta / Service Packs	5003225-2	StoryStarter Scenes Replacement Pack (6 legoElement version)
 903	BrickHeadz / Disney / Disney Princess / Beauty and the Beast	41595-1	Belle
 903	BrickHeadz / Disney / Disney Princess / Beauty and the Beast	41596-1	Beast
 166	Educational & Dacta / Service Packs / Technic	9778-2	Pneumatic Handpump
@@ -14133,7 +14133,7 @@ Category ID	Category Name	Number	Name
 768	Super Heroes / The LEGO Batman Movie	70920-1	Egghead Mech Food Fight
 768	Super Heroes / The LEGO Batman Movie	70921-1	Harley Quinn Cannonball Attack
 768	Super Heroes / The LEGO Batman Movie	70923-1	The Bat-Space Shuttle
-976	LEGO Brand / LEGO House	LHGO-1	LEGO House Grand Opening set
+976	LEGO Brand / LEGO House	LHGO-1	LEGO House Grand Opening legoSet
 166	Educational & Dacta / Service Packs	1301-2	Bricks
 166	Educational & Dacta / Service Packs	1303-1	Technic Parts
 166	Educational & Dacta / Service Packs	1305-1	Wheels and Strings

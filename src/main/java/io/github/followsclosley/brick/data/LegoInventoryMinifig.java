@@ -1,0 +1,23 @@
+package io.github.followsclosley.brick.data;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.*;
+
+@Embeddable
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class LegoInventoryMinifig {
+
+    @ManyToOne
+    @JoinColumn(name = "part_id")
+    private LegoMinifig legoMinifig;
+
+    @Column(nullable = false)
+    private int quantity;
+}

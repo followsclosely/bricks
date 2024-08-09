@@ -1,11 +1,7 @@
 package io.github.followsclosley.brick.data;
 
-import io.github.followsclosley.brick.web.dto.v1.ColorDtoV1;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ColorToDtoTest {
 

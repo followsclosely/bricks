@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.web.dto.v1;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
 public class ThemeDtoV1 {
