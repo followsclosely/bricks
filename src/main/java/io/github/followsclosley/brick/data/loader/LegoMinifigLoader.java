@@ -4,38 +4,33 @@ import io.github.followsclosley.brick.data.LegoMinifig;
 import io.github.followsclosley.brick.data.repository.LegoMinifigRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoMinifigLoader implements Processor {
+public class LegoMinifigLoader {
+    @Value("${catalog.rebrickable.minifigs}")
+    private String url;
+
+    private final CSVFormat csvParser;
     private final LegoMinifigRepository legoMinifigRepository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
+    public void process() throws IOException {
+        log.info("Downloading {} ...", url);
         int counter = 0;
-
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             for (CSVRecord record : csvParser.parse(reader)) {
                 //fig_num,name,num_parts,img_url
                 LegoMinifig fig = new LegoMinifig();

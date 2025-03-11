@@ -1,4 +1,6 @@
 spring:
+  server.tomcat:
+    connection-timeout: 600000
   datasource:
     #https://www.baeldung.com/spring-boot-h2-database
     url: jdbc:h2:file:./h2-bricks;AUTO_SERVER=TRUE
@@ -30,7 +32,7 @@ spring:
     console.enabled: true
 
   jackson:
-    default-property-inclusion: NON_NULL
+    default-property-inclusion: NON_EMPTY
     serialization:
       write-dates-as-timestamps: false
       indent_output: true
@@ -42,12 +44,14 @@ bricks:
       columns: "Country,Stores"
 
 catalog:
-  load-on-startup: true
-  resources:
-    bricklink: #Resources must be loaded in this order
-      colors: classpath:bricklink/colors.txt
-      categories: classpath:bricklink/categories.txt
-      elements: classpath:bricklink/Parts.txt
-      piece: classpath:bricklink/codes.txt
-    country: classpath:countries.csv
-    franchise: classpath:franchise.csv
+  rebrickable: #Resources must be loaded in this order
+    colors: https://cdn.rebrickable.com/media/downloads/colors.csv.gz
+    themes: https://cdn.rebrickable.com/media/downloads/themes.csv.gz
+    part-categories: https://cdn.rebrickable.com/media/downloads/part_categories.csv.gz
+    parts: https://cdn.rebrickable.com/media/downloads/parts.csv.gz
+    elements: https://cdn.rebrickable.com/media/downloads/elements.csv.gz
+    sets: https://cdn.rebrickable.com/media/downloads/sets.csv.gz
+    minifigs: https://cdn.rebrickable.com/media/downloads/minifigs.csv.gz
+    minifigs-inventories: https://cdn.rebrickable.com/media/downloads/inventory_minifigs.csv.gz
+    inventories: https://cdn.rebrickable.com/media/downloads/inventories.csv.gz
+    inventories-parts: https://cdn.rebrickable.com/media/downloads/inventory_parts.csv.gz

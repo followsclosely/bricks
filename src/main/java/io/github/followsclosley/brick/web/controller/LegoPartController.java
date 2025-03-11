@@ -2,9 +2,7 @@ package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.LegoPart;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
-import io.github.followsclosley.brick.web.converter.VersionedMapperFactory;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class LegoPartController {
     private final LegoPartRepository repository;
-    private final VersionedMapperFactory<LegoPart> mapper;
 
-//    @GetMapping(value = "/{version}/piece", produces = "application/json")
-//    Page<?> getPiecesByName(@PathVariable(name = "version") String version, @Param("name") String name, Pageable pageable) {
+//    @GetMapping(value = "/piece", produces = "application/json")
+//    Page<?> getPiecesByName( @Param("name") String name, Pageable pageable) {
 //        Page<Piece> page = repository.findByElementNameContainingIgnoreCase(name, pageable);
-//        List parts = page.getContent().stream().map(piece -> mapper.map(piece, version)).toList();
+//        List parts = page.getContent().stream().map(piece -> mapper.map(piece).toList();
 //        return new PageImpl<>(parts, page.getPageable(), page.getTotalElements());
 //    }
 
-    @GetMapping(value = "/{version}/piece/{id}", produces = "application/json")
-    ResponseEntity<?> getPiece(@PathVariable(name = "version") String version, @PathVariable String id) {
-        return ResponseEntity.ok(mapper.map(repository.getReferenceById(id), version));
+    @GetMapping(value = "/piece/{id}", produces = "application/json")
+    LegoPart getLegoPartById(@PathVariable String id) {
+        return repository.getReferenceById(id);
     }
 }

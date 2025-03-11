@@ -4,41 +4,38 @@ import io.github.followsclosley.brick.data.LegoTheme;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoThemeLoader implements Processor {
+public class LegoThemeLoader {
+    @Value("${catalog.rebrickable.themes}")
+    private String url;
+
+    private final CSVFormat csvParser;
     private final LegoThemeRepository repository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
-        int counter = 0;
+    public void process() throws IOException {
         Map<String, LegoTheme> cache = new HashMap<>();
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+
+        log.info("Downloading themes.csv.gz ...");
+        int counter = 0;
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,name,parent_id
                 LegoTheme legoTheme = new LegoTheme();
@@ -51,10 +48,12 @@ public class LegoThemeLoader implements Processor {
                     legoTheme.setParent(parent);
                 }
 
+                repository.save(legoTheme);
+                //log.info("Saved Theme: {}", legoTheme);
+
                 //Place the theme in the cache so that parent lookup can occur.
                 cache.put(legoTheme.getId(), legoTheme);
 
-                repository.save(legoTheme);
                 counter++;
             }
         }

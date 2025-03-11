@@ -9,47 +9,41 @@ import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoInventoryPartLoader implements Processor {
+public class LegoInventoryPartLoader {
+    @Value("${catalog.rebrickable.inventories-parts}")
+    private String url;
 
+    private final CSVFormat csvParser;
     private final LegoInventoryRepository legoInventoryRepository;
     private final LegoPartRepository legoPartRepository;
     private final LegoColorRepository legoColorRepository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
+    public void process() throws IOException {
         //inventory_id,part_num,color_id,quantity,is_spare,img_url
-
+        log.info("Loading all the colors from the database ...");
         Map<String, LegoColor> colors = legoColorRepository.findAll().stream().collect(Collectors.toMap(LegoColor::getId, c -> c));
 
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
         int counter = 0;
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             String id = null;
             LegoInventory legoInventory = null;
             for (CSVRecord record : csvParser.parse(reader)) {
@@ -58,7 +52,7 @@ public class LegoInventoryPartLoader implements Processor {
                     if( legoInventory != null) {
                         //Inventory changed, so persist.
                         legoInventoryRepository.save(legoInventory);
-                        log.info("Inserted/Updated {} inventory/parts.", counter);
+                        //log.info("Inserted/Updated {} inventory/parts.", counter);
                     }
                     counter = 0;
                     id = record.get(0);

@@ -7,51 +7,44 @@ import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoMinifigRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
 import java.util.Optional;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoInventoryMinifigLoader implements Processor {
+public class LegoInventoryMinifigLoader {
+    @Value("${catalog.rebrickable.minifigs-inventories}")
+    private String url;
 
+    private final CSVFormat csvParser;
     private final LegoInventoryRepository legoInventoryRepository;
     private final LegoMinifigRepository legoMinifigRepository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
+    public void process() throws IOException {
         //inventory_id,fig_num,quantity
-
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
+        log.info("Downloading {} ...", url);
         int counter = 0;
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             String id = null;
             LegoInventory legoInventory = null;
             for (CSVRecord record : csvParser.parse(reader)) {
-
                 if (id == null || !id.equals(record.get(0))) {
                     if( legoInventory != null) {
                         //Inventory changed, so persist.
                         legoInventoryRepository.save(legoInventory);
-                        log.info("Inserted/Updated {} inventory/minifigs.", counter);
+                        //log.info("Inserted/Updated {} inventory/minifigs.", counter);
                     }
                     counter = 0;
                     id = record.get(0);

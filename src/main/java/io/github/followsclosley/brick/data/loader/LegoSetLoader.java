@@ -6,43 +6,39 @@ import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoSetLoader implements Processor {
+public class LegoSetLoader {
+    @Value("${catalog.rebrickable.sets}")
+    private String url;
+
+    private final CSVFormat csvParser;
     private final LegoSetRepository setRepository;
     private final LegoThemeRepository legoThemeRepository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
-        int counter = 0;
-
+    public void process() throws IOException {
+        log.info("Loading all the themes from the database ...");
         Map<String, LegoTheme> themes = legoThemeRepository.findAll().stream().collect(Collectors.toMap(LegoTheme::getId, t -> t));
 
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+        log.info("Downloading {} ...", url);
+        int counter = 0;
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             for (CSVRecord record : csvParser.parse(reader)) {
                 //set_num,name,year,theme_id,num_parts,img_url
                 LegoSet legoSet = new LegoSet();

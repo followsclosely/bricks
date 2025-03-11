@@ -5,38 +5,34 @@ import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
+import java.util.zip.GZIPInputStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class LegoInventoryLoader implements Processor {
+public class LegoInventoryLoader {
+    @Value("${catalog.rebrickable.inventories}")
+    private String url;
+
+    private final CSVFormat csvParser;
     private final LegoSetRepository setRepository;
     private final LegoInventoryRepository legoInventoryRepository;
 
-    @Override
-    public void process(Exchange exchange) throws IOException {
-
-        CSVFormat csvParser = CSVFormat.DEFAULT.builder()
-                .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
-                .setIgnoreEmptyLines(true)
-                .build();
-
+    public void process() throws IOException {
+        log.info("Downloading {} ...", url);
         int counter = 0;
-        try (
-                final InputStream in = exchange.getIn().getBody(InputStream.class);
-                final Reader reader = new InputStreamReader(in)
-        ) {
+        try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
+             final Reader reader = new InputStreamReader(in))
+        {
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,version,set_num
                 LegoInventory legoInventory = new LegoInventory();
