@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.web.controller;
 
-import io.github.followsclosley.brick.data.LegoSet;
+import io.github.followsclosley.brick.data.entity.LegoSet;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoSet;
-import io.github.followsclosley.brick.data.LegoTheme;
+import io.github.followsclosley.brick.data.entity.LegoSet;
+import io.github.followsclosley.brick.data.entity.LegoTheme;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
 import lombok.RequiredArgsConstructor;

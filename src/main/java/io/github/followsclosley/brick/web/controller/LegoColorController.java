@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.web.controller;
 
-import io.github.followsclosley.brick.data.LegoColor;
+import io.github.followsclosley.brick.data.entity.LegoColor;
 import io.github.followsclosley.brick.data.loader.LegoColorLoader;
 import io.github.followsclosley.brick.data.repository.LegoColorRepository;
 import lombok.RequiredArgsConstructor;

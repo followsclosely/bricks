@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.data.LegoInventory;
+import io.github.followsclosley.brick.data.entity.LegoInventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

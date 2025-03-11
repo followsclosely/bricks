@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoCategory;
+import io.github.followsclosley.brick.data.entity.LegoCategory;
 import io.github.followsclosley.brick.data.repository.LegoCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

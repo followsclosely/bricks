@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoMinifig;
+import io.github.followsclosley.brick.data.entity.LegoMinifig;
 import io.github.followsclosley.brick.data.repository.LegoMinifigRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

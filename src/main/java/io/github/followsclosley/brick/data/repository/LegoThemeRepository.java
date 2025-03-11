@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.data.LegoTheme;
+import io.github.followsclosley.brick.data.entity.LegoTheme;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

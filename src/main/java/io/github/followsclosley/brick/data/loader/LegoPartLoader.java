@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoCategory;
-import io.github.followsclosley.brick.data.LegoPart;
+import io.github.followsclosley.brick.data.entity.LegoCategory;
+import io.github.followsclosley.brick.data.entity.LegoPart;
 import io.github.followsclosley.brick.data.repository.LegoCategoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class LegoPartLoader {
         log.info("Loading all the categories from the database ...");
         Map<String, LegoCategory> categories = legoCategoryRepository.findAll().stream().collect(Collectors.toMap(LegoCategory::getId, c -> c));
 
-        log.info("Downloading {}} ...", url);
+        log.info("Downloading {} ...", url);
         int counter = 0;
         try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
              final Reader reader = new InputStreamReader(in))

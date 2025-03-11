@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.web.controller;
 
-import io.github.followsclosley.brick.data.LegoTheme;
+import io.github.followsclosley.brick.data.entity.LegoTheme;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

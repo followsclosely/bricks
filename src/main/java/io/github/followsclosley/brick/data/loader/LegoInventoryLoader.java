@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoInventory;
+import io.github.followsclosley.brick.data.entity.LegoInventory;
 import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import lombok.RequiredArgsConstructor;

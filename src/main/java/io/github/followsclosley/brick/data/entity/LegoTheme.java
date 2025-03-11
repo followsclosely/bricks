@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.data;
+package io.github.followsclosley.brick.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

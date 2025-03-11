@@ -1,6 +1,6 @@
 package io.github.followsclosley.brick.data.repository;
 
-import io.github.followsclosley.brick.data.LegoCategory;
+import io.github.followsclosley.brick.data.entity.LegoCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

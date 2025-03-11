@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.data;
+package io.github.followsclosley.brick.data.entity;
 
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

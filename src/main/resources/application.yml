@@ -37,12 +37,6 @@ spring:
       write-dates-as-timestamps: false
       indent_output: true
 
-bricks:
-  queries:
-    countries:
-      sql: "select c.ALPHA3, count(*) from franchise f join country c ON c.ALPHA3 = f.COUNTRY_ALPHA3 GROUP BY c.ALPHA3"
-      columns: "Country,Stores"
-
 catalog:
   rebrickable: #Resources must be loaded in this order
     colors: https://cdn.rebrickable.com/media/downloads/colors.csv.gz

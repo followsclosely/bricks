@@ -32,6 +32,9 @@ public class LegoLoaderController {
         new Thread(() -> {
             try{
                 colorLoader.process();
+
+                if(System.currentTimeMillis() > 0) return;
+
                 themeLoader.process();
                 categoryLoader.process();
 

@@ -1,7 +1,7 @@
 package io.github.followsclosley.brick.data.loader;
 
-import io.github.followsclosley.brick.data.LegoColor;
-import io.github.followsclosley.brick.data.LegoElement;
+import io.github.followsclosley.brick.data.entity.LegoColor;
+import io.github.followsclosley.brick.data.entity.LegoElement;
 import io.github.followsclosley.brick.data.repository.LegoColorRepository;
 import io.github.followsclosley.brick.data.repository.LegoElementRepository;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
