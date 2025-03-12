@@ -1,6 +1,9 @@
 package io.github.followsclosley.brick.data.entity.change;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 

@@ -1,7 +1,11 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
+import io.github.followsclosley.brick.data.entity.LegoPart;
 import io.github.followsclosley.brick.data.entity.LegoSet;
 import io.github.followsclosley.brick.data.entity.LegoTheme;
+import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +31,9 @@ public class LegoSetLoader {
     private String url;
 
     private final CSVFormat csvParser;
-    private final LegoSetRepository setRepository;
+    private final LegoSetRepository legoSetRepository;
     private final LegoThemeRepository legoThemeRepository;
+    private final ChangeLogRepository changeLogRepository;
 
     public void process() throws IOException {
         log.info("Loading all the themes from the database ...");
@@ -39,6 +44,8 @@ public class LegoSetLoader {
         try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
              final Reader reader = new InputStreamReader(in))
         {
+            ChangeLogBuilder<LegoSet> changeLogBuilder = new ChangeLogBuilder<>();
+
             for (CSVRecord record : csvParser.parse(reader)) {
                 //set_num,name,year,theme_id,num_parts,img_url
                 LegoSet legoSet = new LegoSet();
@@ -49,9 +56,16 @@ public class LegoSetLoader {
                 legoSet.setPartCount(Integer.parseInt(record.get(4)));
                 legoSet.setImageUrl(record.get(5));
 
-                setRepository.save(legoSet);
-                counter++;
+                if (changeLogBuilder.compare(legoSet, legoSetRepository.findById(legoSet.getId()))) {
+                    legoSetRepository.save(legoSet);
+                    counter++;
+                }
+
             }
+
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoSet: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoSet(s)." : "No changes made."));
+            changeLogRepository.save(changeLog);
         }
 
         log.info("Inserted/Updated {} sets.", counter);

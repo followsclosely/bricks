@@ -33,7 +33,7 @@ public class LegoLoaderController {
             try{
                 colorLoader.process();
 
-                if(System.currentTimeMillis() > 0) return;
+                //if(System.currentTimeMillis() > 0) return;
 
                 themeLoader.process();
                 categoryLoader.process();

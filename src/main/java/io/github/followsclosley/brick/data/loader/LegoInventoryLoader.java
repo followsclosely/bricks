@@ -1,6 +1,10 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
+import io.github.followsclosley.brick.data.entity.LegoElement;
 import io.github.followsclosley.brick.data.entity.LegoInventory;
+import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoSetRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +30,7 @@ public class LegoInventoryLoader {
     private final CSVFormat csvParser;
     private final LegoSetRepository setRepository;
     private final LegoInventoryRepository legoInventoryRepository;
+    private final ChangeLogRepository changeLogRepository;
 
     public void process() throws IOException {
         log.info("Downloading {} ...", url);
@@ -33,6 +38,8 @@ public class LegoInventoryLoader {
         try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
              final Reader reader = new InputStreamReader(in))
         {
+            ChangeLogBuilder<LegoInventory> changeLogBuilder = new ChangeLogBuilder<>();
+
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,version,set_num
                 LegoInventory legoInventory = new LegoInventory();
@@ -40,13 +47,17 @@ public class LegoInventoryLoader {
                 legoInventory.setVersion(record.get(1));
 
                 setRepository.findById(record.get(2)).ifPresent(legoInventory::setLegoSet);
-                //inventory.se
 
-                legoInventoryRepository.save(legoInventory);
-                counter++;
+                if (changeLogBuilder.compare(legoInventory, legoInventoryRepository.findById(legoInventory.getId()))) {
+                    legoInventoryRepository.save(legoInventory);
+                    counter++;
+                }
             }
-        }
 
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoInventory: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoInventory(s)." : "No changes made."));
+            changeLogRepository.save(changeLog);
+        }
         log.info("Inserted/Updated {} inventories.", counter);
     }
 }

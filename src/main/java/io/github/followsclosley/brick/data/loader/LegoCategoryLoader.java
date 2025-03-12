@@ -1,6 +1,10 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
 import io.github.followsclosley.brick.data.entity.LegoCategory;
+import io.github.followsclosley.brick.data.entity.LegoColor;
+import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +28,7 @@ public class LegoCategoryLoader {
 
     private final CSVFormat csvParser;
     private final LegoCategoryRepository repository;
+    private final ChangeLogRepository changeLogRepository;
 
     public void process() throws IOException {
         log.info("Downloading {} ...", url);
@@ -31,6 +36,8 @@ public class LegoCategoryLoader {
         try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
              final Reader reader = new InputStreamReader(in))
         {
+            ChangeLogBuilder<LegoCategory> changeLogBuilder = new ChangeLogBuilder<>();
+
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,name
                 LegoCategory category = new LegoCategory();
@@ -38,9 +45,15 @@ public class LegoCategoryLoader {
                 category.setName(record.get(1));
 
                 //log.info("Saving Category: {}", category);
-                repository.save(category);
-                counter++;
+                if (changeLogBuilder.compare(category, repository.findById(category.getId()))) {
+                    repository.save(category);
+                    counter++;
+                }
             }
+
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoCategory: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoCategory(s)." : "No changes made."));
+            changeLogRepository.save(changeLog);
         }
 
         log.info("Inserted/Updated {} categories.", counter);

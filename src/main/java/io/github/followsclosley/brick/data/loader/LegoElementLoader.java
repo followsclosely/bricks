@@ -1,7 +1,11 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
+import io.github.followsclosley.brick.data.entity.LegoCategory;
 import io.github.followsclosley.brick.data.entity.LegoColor;
 import io.github.followsclosley.brick.data.entity.LegoElement;
+import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoColorRepository;
 import io.github.followsclosley.brick.data.repository.LegoElementRepository;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
@@ -31,6 +35,7 @@ public class LegoElementLoader {
     private final LegoElementRepository legoElementRepository;
     private final LegoPartRepository legoPartRepository;
     private final LegoColorRepository legoColorRepository;
+    private final ChangeLogRepository changeLogRepository;
 
     public void process() throws IOException {
         log.info("Loading all the colors from the database ...");
@@ -42,18 +47,29 @@ public class LegoElementLoader {
              final Reader reader = new InputStreamReader(in))
         {
             //element_id,part_num,color_id,design_id
+
+            ChangeLogBuilder<LegoElement> changeLogBuilder = new ChangeLogBuilder<>();
+
             for (CSVRecord record : csvParser.parse(reader)) {
                 LegoElement legoElement = new LegoElement();
                 legoElement.setId(record.get(0));
                 legoPartRepository.findById(record.get(1)).ifPresent(legoElement::setLegoPart);
                 legoElement.setLegoColor(colors.get(record.get(2)));
                 legoElement.setDesign(record.get(3));
-                legoElementRepository.save(legoElement);
-                counter++;
-                if ( counter%10000 == 0) {
+
+                if (changeLogBuilder.compare(legoElement, legoElementRepository.findById(legoElement.getId()))) {
+                    legoElementRepository.save(legoElement);
+                    counter++;
+                }
+
+                if ( counter > 0 && counter%10000 == 0) {
                     log.info("Inserted/Updated {} elements...", counter);
                 }
             }
+
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoElement: "+ ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoElement(s)." : "No changes made."));
+            changeLogRepository.save(changeLog);
         }
 
         log.info("Inserted/Updated {} elements.", counter);

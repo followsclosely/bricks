@@ -7,11 +7,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Embeddable
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class LegoInventoryMinifig {
 
     @ManyToOne

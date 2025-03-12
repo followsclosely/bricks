@@ -1,7 +1,11 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
 import io.github.followsclosley.brick.data.entity.LegoCategory;
+import io.github.followsclosley.brick.data.entity.LegoMinifig;
 import io.github.followsclosley.brick.data.entity.LegoPart;
+import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoCategoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +34,7 @@ public class LegoPartLoader {
     private final CSVFormat csvParser;
     private final LegoPartRepository legoPartRepository;
     private final LegoCategoryRepository legoCategoryRepository;
+    private final ChangeLogRepository changeLogRepository;
 
     public void process() throws IOException {
         log.info("Loading all the categories from the database ...");
@@ -40,6 +45,8 @@ public class LegoPartLoader {
         try (final GZIPInputStream in = new GZIPInputStream(new URL(url).openStream());
              final Reader reader = new InputStreamReader(in))
         {
+            ChangeLogBuilder<LegoPart> changeLogBuilder = new ChangeLogBuilder<>();
+
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,name,parent_id
                 LegoPart legoPart = new LegoPart();
@@ -49,13 +56,19 @@ public class LegoPartLoader {
                 legoPart.setMaterial(record.get(3));
 
                 //log.info("Loading Part: {}", legoPart);
-                legoPartRepository.save(legoPart);
-                counter++;
+                if (changeLogBuilder.compare(legoPart, legoPartRepository.findById(legoPart.getId()))) {
+                    legoPartRepository.save(legoPart);
+                    counter++;
+                }
 
-                if ( counter%10000 == 0) {
+                if ( counter > 0 && counter%10000 == 0) {
                     log.info("Inserted/Updated {} parts...", counter);
                 }
             }
+
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoPart: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoPart(s)." : "No changes made."));
+            changeLogRepository.save(changeLog);
         }
 
         log.info("Inserted/Updated {} parts.", counter);

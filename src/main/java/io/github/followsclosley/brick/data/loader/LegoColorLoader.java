@@ -1,5 +1,6 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
 import io.github.followsclosley.brick.data.entity.LegoColor;
 import io.github.followsclosley.brick.data.entity.change.ChangeLog;
 import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
@@ -8,9 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.lang3.builder.DiffResult;
-import org.apache.commons.lang3.builder.ReflectionDiffBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +16,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
-import java.time.Instant;
-import java.util.Optional;
 import java.util.zip.GZIPInputStream;
 
 @Slf4j
@@ -40,7 +36,7 @@ public class LegoColorLoader {
              final Reader reader = new InputStreamReader(in))
         {
             //UPDATE LEGO_COLOR SET RGB='STINK' WHERE ID = 0
-            ChangeLog changeLog = ChangeLog.now();
+            ChangeLogBuilder<LegoColor> changeLogBuilder = new ChangeLogBuilder<>();
 
             for (CSVRecord record : csvParser.parse(reader)) {
                 //id,name,rgb,is_trans
@@ -50,28 +46,14 @@ public class LegoColorLoader {
                 legoColor.setRgb(record.get(2));
                 legoColor.setTransparent("t".equalsIgnoreCase(record.get(3)));
 
-
-                Optional<LegoColor> optional = repository.findById(legoColor.getId());
-                if( optional.isEmpty() ) {
-                    repository.save(legoColor);
-                    counter++;
-                    changeLog.addLine("Created new Color: " + legoColor);
-                }
-                else if( !optional.get().equals(legoColor)) {
-                    DiffResult<LegoColor> differences = new ReflectionDiffBuilder<>(optional.get(), legoColor, ToStringStyle.SHORT_PREFIX_STYLE).build();
-                    log.info(differences.toString());
-                    changeLog.addLine(differences.toString());
-
+                if (changeLogBuilder.compare(legoColor, repository.findById(legoColor.getId()))) {
                     repository.save(legoColor);
                     counter++;
                 }
             }
 
-            if (changeLog.hasChangeLogs()){
-                changeLog.setMessage("Inserted/Updated "+counter+" colors.");
-            } else {
-                changeLog.setMessage("No changes made.");
-            }
+            ChangeLog changeLog = changeLogBuilder.build();
+            changeLog.setMessage( "LegoColor: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated "+counter+" LegoColor(s)." : "No changes made."));
             changeLogRepository.save(changeLog);
 
         }

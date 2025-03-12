@@ -18,7 +18,8 @@ public class ChangeLog {
     private Instant dateTimeEnd;
     private String message;
 
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    //@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Transient
     private List<ChangeLogLine> changeLogs;
 
     public static ChangeLog now() {
@@ -35,13 +36,12 @@ public class ChangeLog {
         }
     }
 
-    public ChangeLog addLine(String message) {
+    public void addLine(String message) {
         ChangeLogLine changeLogLine = new ChangeLogLine();
         changeLogLine.setDateTime(Instant.now());
         changeLogLine.setMessage(message);
         changeLogLine.setParent(this);
         changeLogs.add(changeLogLine);
-        return this;
     }
 
     public boolean hasChangeLogs() {

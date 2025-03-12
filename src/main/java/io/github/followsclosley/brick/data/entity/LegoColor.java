@@ -7,7 +7,6 @@ import lombok.ToString;
 
 @Entity
 @Data
-@ToString()
 public class LegoColor {
     @Id
     private String id;

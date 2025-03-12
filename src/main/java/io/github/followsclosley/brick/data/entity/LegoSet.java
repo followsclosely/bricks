@@ -4,16 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Entity(name = "lego_set")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Data
 public class LegoSet {
     @Id
     private String id;

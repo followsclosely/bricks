@@ -1,8 +1,10 @@
 package io.github.followsclosley.brick.data.loader;
 
+import io.github.followsclosley.brick.data.ChangeLogBuilder;
 import io.github.followsclosley.brick.data.entity.LegoInventory;
 import io.github.followsclosley.brick.data.entity.LegoInventoryMinifig;
 import io.github.followsclosley.brick.data.entity.LegoMinifig;
+import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
 import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoMinifigRepository;
 import lombok.RequiredArgsConstructor;
