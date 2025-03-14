@@ -32,7 +32,7 @@ public class LegoLoaderController {
     private final LegoInventoryMinifigLoader inventoryMinifigLoader;
 
     @GetMapping(value = "/loader")
-    void load() throws IOException {
+    void load() {
         new Thread(() -> {
             try {
                 colorLoader.process();

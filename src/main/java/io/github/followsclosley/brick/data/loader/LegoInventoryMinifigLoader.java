@@ -6,7 +6,6 @@ import io.github.followsclosley.brick.data.entity.LegoInventoryMinifig;
 import io.github.followsclosley.brick.data.entity.LegoMinifig;
 import io.github.followsclosley.brick.data.entity.change.ChangeLog;
 import io.github.followsclosley.brick.data.repository.ChangeLogRepository;
-import io.github.followsclosley.brick.data.repository.LegoColorRepository;
 import io.github.followsclosley.brick.data.repository.LegoInventoryRepository;
 import io.github.followsclosley.brick.data.repository.LegoMinifigRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +31,6 @@ public class LegoInventoryMinifigLoader {
     private final CSVFormat csvParser;
     private final LegoInventoryRepository legoInventoryRepository;
     private final LegoMinifigRepository legoMinifigRepository;
-    private final LegoColorRepository legoColorRepository;
     private final ChangeLogRepository changeLogRepository;
 
     @Value("${catalog.rebrickable.inventories-parts}")

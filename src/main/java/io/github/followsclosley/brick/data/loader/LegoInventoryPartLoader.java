@@ -91,7 +91,7 @@ public class LegoInventoryPartLoader {
                             legoInventoryRepository.save(legoInventory);
                             setsModified++;
                             //log.info("LegoInventory: Inventory for set {} updated - {} parts added and {} removed.", (legoInventory.getLegoSet()==null)?null:legoInventory.getLegoSet().getId(), partsAdded, partsRemoved);
-                            changeLogBuilder.addLine(String.format("LegoInventory: Inventory for set %s updated - %n parts added and %n removed.", (legoInventory.getLegoSet()==null)?null:legoInventory.getLegoSet().getId(), partsAdded, partsRemoved));
+                            changeLogBuilder.addLine(String.format("LegoInventory: Inventory for set %s updated - %d parts added and %d removed.", (legoInventory.getLegoSet()==null)?null:legoInventory.getLegoSet().getId(), partsAdded, partsRemoved));
                         } else {
                             //log.info("LegoInventory: Inventory for set {} did not change.", legoInventory.getLegoSet().getId());
                         }
