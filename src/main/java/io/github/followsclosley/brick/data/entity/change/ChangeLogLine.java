@@ -2,8 +2,8 @@ package io.github.followsclosley.brick.data.entity.change;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.UuidGenerator;
+import org.springframework.util.StringUtils;
 
 import java.time.Instant;
 
