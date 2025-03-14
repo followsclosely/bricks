@@ -41,6 +41,8 @@ public class LegoInventoryPartLoader {
     private String url;
 
     public void process() throws IOException {
+        log.info("Downloading {} ...", url);
+
         //inventory_id,part_num,color_id,quantity,is_spare,img_url
         log.info("Loading all the colors from the database ...");
         Map<String, LegoColor> colors = legoColorRepository.findAll().stream().collect(Collectors.toMap(LegoColor::getId, c -> c));

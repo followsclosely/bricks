@@ -36,6 +36,8 @@ public class LegoInventoryMinifigLoader {
     private String url;
 
     public void process() throws IOException {
+        log.info("Downloading {} ...", url);
+
         int counter = 0;
         int setsModified = 0;
         int partsAdded = 0;
