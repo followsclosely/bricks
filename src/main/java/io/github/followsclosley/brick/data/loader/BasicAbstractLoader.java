@@ -35,6 +35,7 @@ public abstract class BasicAbstractLoader<E, PK> {
             preLoad();
 
             ChangeLogBuilder<E> changeLogBuilder = new ChangeLogBuilder<>();
+            changeLogBuilder.setEntity(entityType);
 
             for (CSVRecord record : csvParser.parse(reader)) {
                 E entity = map(record);

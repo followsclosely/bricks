@@ -54,6 +54,7 @@ public class LegoInventoryPartLoader {
              final Reader reader = new InputStreamReader(in)) {
 
             ChangeLogBuilder<LegoInventory> changeLogBuilder = new ChangeLogBuilder<>();
+            changeLogBuilder.setEntity("Lego Inventory Part");
 
             String id = null;
             boolean inventoryChanged = false;

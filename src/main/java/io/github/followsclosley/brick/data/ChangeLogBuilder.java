@@ -25,6 +25,10 @@ public class ChangeLogBuilder<E> {
         return false;
     }
 
+    public ChangeLogBuilder<E> setEntity(String entity) {
+        changeLog.setEntity(entity);
+        return this;
+    }
     public ChangeLogBuilder<E> setMessage(String message) {
         changeLog.setMessage(message);
         return this;

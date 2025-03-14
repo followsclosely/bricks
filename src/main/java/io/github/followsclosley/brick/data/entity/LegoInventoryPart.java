@@ -26,7 +26,4 @@ public class LegoInventoryPart {
     public String getCompositeKey(){
         return (legoPart==null?"null":legoPart.getId()) + "." + (color==null?"null":color.getId() + "." + spare);
     }
-//    public String getPartId(){
-//        return (legoPart==null) ? null : legoPart.getId();
-//    }
 }

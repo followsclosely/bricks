@@ -16,4 +16,8 @@ public class LegoInventoryMinifig {
 
     @Column(nullable = false)
     private int quantity;
+
+    public String getCompositeKey(){
+        return legoMinifig==null?"null":legoMinifig.getId();
+    }
 }

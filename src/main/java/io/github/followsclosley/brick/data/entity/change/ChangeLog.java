@@ -16,10 +16,10 @@ public class ChangeLog {
     private String id;
     private Instant dateTimeStart;
     private Instant dateTimeEnd;
+    private String entity;
     private String message;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Transient
     private List<ChangeLogLine> changeLogs;
 
     public static ChangeLog now() {

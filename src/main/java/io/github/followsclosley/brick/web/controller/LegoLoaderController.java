@@ -24,9 +24,10 @@ public class LegoLoaderController {
     private final BasicAbstractLoader<LegoElement, String> elementLoader;
     private final BasicAbstractLoader<LegoSet, String> setLoader;
     private final BasicAbstractLoader<LegoMinifig, String> minifigLoader;
-    private final LegoInventoryMinifigLoader inventoryMinifigLoader;
+
     private final BasicAbstractLoader<LegoInventory, String> inventoryLoader;
     private final LegoInventoryPartLoader inventoryPartLoader;
+    private final LegoInventoryMinifigLoader inventoryMinifigLoader;
 
     @GetMapping(value = "/loader")
     void load() throws IOException {
