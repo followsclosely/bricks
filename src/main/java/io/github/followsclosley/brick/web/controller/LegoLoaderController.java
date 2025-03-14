@@ -1,7 +1,9 @@
 package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.*;
-import io.github.followsclosley.brick.data.loader.*;
+import io.github.followsclosley.brick.data.loader.BasicAbstractLoader;
+import io.github.followsclosley.brick.data.loader.LegoInventoryMinifigLoader;
+import io.github.followsclosley.brick.data.loader.LegoInventoryPartLoader;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

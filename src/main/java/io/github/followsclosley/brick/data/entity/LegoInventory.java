@@ -3,7 +3,6 @@ package io.github.followsclosley.brick.data.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Iterator;
 import java.util.Set;
 
 @Entity
