@@ -165,7 +165,7 @@ public class LegoInventoryPartLoader {
             }
 
             ChangeLog changeLog = changeLogBuilder.build();
-            changeLog.setMessage("LegoInventory: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated " + setsModified + " " + "LegoInventory(s)." : "No changes made."));
+            changeLog.setMessage("Lego Part Inventory: " + ((changeLog.hasChangeLogs()) ? "Inserted/Updated " + setsModified + " " + "Lego Part Inventory(s)." : "No changes made."));
             changeLogRepository.save(changeLog);
         }
     }
