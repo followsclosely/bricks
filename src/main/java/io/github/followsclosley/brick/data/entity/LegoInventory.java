@@ -1,8 +1,9 @@
 package io.github.followsclosley.brick.data.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -12,11 +13,11 @@ public class LegoInventory {
     private String id;
     private String version;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "lego_inventory_parts", joinColumns = @JoinColumn(name = "inventory_id"))
     private Set<LegoInventoryPart> parts;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "lego_inventory_minifigs", joinColumns = @JoinColumn(name = "inventory_id"))
     private Set<LegoInventoryMinifig> minifigs;
 

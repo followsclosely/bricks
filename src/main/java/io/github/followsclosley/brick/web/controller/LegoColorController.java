@@ -1,7 +1,6 @@
 package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoColor;
-import io.github.followsclosley.brick.data.loader.LegoColorLoader;
 import io.github.followsclosley.brick.data.repository.LegoColorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class LegoColorController {
-    private final LegoColorLoader colorLoader;
     private final LegoColorRepository legoColorRepository;
 
 
@@ -36,7 +34,7 @@ public class LegoColorController {
     }
 
     @GetMapping(value = "/color/{id}", produces = "application/json")
-    LegoColor getColor( @PathVariable String id) {
+    LegoColor getColor(@PathVariable String id) {
         return legoColorRepository.getReferenceById(id);
     }
 }

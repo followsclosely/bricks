@@ -3,7 +3,6 @@ package io.github.followsclosley.brick.data.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
-import lombok.ToString;
 
 @Entity
 @Data

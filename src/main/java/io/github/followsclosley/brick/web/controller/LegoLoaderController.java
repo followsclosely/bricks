@@ -1,5 +1,6 @@
 package io.github.followsclosley.brick.web.controller;
 
+import io.github.followsclosley.brick.data.entity.*;
 import io.github.followsclosley.brick.data.loader.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,36 +17,32 @@ public class LegoLoaderController {
      * This is ugly and I could inject a map of these loaders,
      * but I want to have the ability to skip and order the loaders
      **/
-    private final LegoColorLoader colorLoader;
-    private final LegoThemeLoader themeLoader;
-    private final LegoCategoryLoader categoryLoader;
-    private final LegoPartLoader partLoader;
-    private final LegoElementLoader elementLoader;
-    private final LegoSetLoader setLoader;
-    private final LegoMinifigLoader minifigLoader;
+    private final BasicAbstractLoader<LegoColor, String> colorLoader;
+    private final BasicAbstractLoader<LegoTheme, String> themeLoader;
+    private final BasicAbstractLoader<LegoCategory, String> categoryLoader;
+    private final BasicAbstractLoader<LegoPart, String> partLoader;
+    private final BasicAbstractLoader<LegoElement, String> elementLoader;
+    private final BasicAbstractLoader<LegoSet, String> setLoader;
+    private final BasicAbstractLoader<LegoMinifig, String> minifigLoader;
     private final LegoInventoryMinifigLoader inventoryMinifigLoader;
-    private final LegoInventoryLoader inventoryLoader;
+    private final BasicAbstractLoader<LegoInventory, String> inventoryLoader;
     private final LegoInventoryPartLoader inventoryPartLoader;
 
     @GetMapping(value = "/loader")
     void load() throws IOException {
         new Thread(() -> {
-            try{
+            try {
                 colorLoader.process();
-
-                //if(System.currentTimeMillis() > 0) return;
-
                 themeLoader.process();
                 categoryLoader.process();
-
                 partLoader.process();
                 elementLoader.process();
-
                 setLoader.process();
+                minifigLoader.process();
+                //log.info("Complete.");
+                //if (System.currentTimeMillis() > 0) return;
                 inventoryLoader.process();
                 inventoryPartLoader.process();
-
-                minifigLoader.process();
                 inventoryMinifigLoader.process();
 
                 log.info("Complete.");

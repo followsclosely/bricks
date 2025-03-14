@@ -30,7 +30,7 @@ public class LegoThemeController {
 
         List<LegoTheme> themes = repository.findAll();
 
-        if( children) {
+        if (children) {
 
             Map<String, LegoTheme> map = themes.stream()
                     .collect(Collectors.toMap(LegoTheme::getId, Function.identity()));

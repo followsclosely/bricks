@@ -13,12 +13,11 @@ public class ChangeLogBuilder<E> {
 
     private final ChangeLog changeLog = ChangeLog.now();
 
-    public boolean compare(E newEntity, Optional<E> oldEntity){
-        if( oldEntity.isEmpty() ) {
-            changeLog.addLine("Created new "+newEntity.getClass().getSimpleName()+": " + newEntity);
+    public boolean compare(E newEntity, Optional<E> oldEntity) {
+        if (oldEntity.isEmpty()) {
+            changeLog.addLine("Created new " + newEntity.getClass().getSimpleName() + ": " + newEntity);
             return true;
-        }
-        else if( !oldEntity.get().equals(newEntity)) {
+        } else if (!oldEntity.get().equals(newEntity)) {
             DiffResult<E> differences = new ReflectionDiffBuilder<>(oldEntity.get(), newEntity, ToStringStyle.SHORT_PREFIX_STYLE).build();
             changeLog.addLine(differences.toString());
             return true;
@@ -26,16 +25,17 @@ public class ChangeLogBuilder<E> {
         return false;
     }
 
-    public ChangeLogBuilder<E> setMessage(String message){
+    public ChangeLogBuilder<E> setMessage(String message) {
         changeLog.setMessage(message);
         return this;
     }
-    public ChangeLogBuilder<E> addLine(String message){
+
+    public ChangeLogBuilder<E> addLine(String message) {
         changeLog.addLine(message);
         return this;
     }
 
-    public ChangeLog build(){
+    public ChangeLog build() {
         if (changeLog.getMessage() == null) {
             changeLog.setMessage("No changes made.");
         }

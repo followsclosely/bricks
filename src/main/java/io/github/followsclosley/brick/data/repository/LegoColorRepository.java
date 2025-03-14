@@ -10,5 +10,6 @@ import java.util.List;
 
 public interface LegoColorRepository extends JpaRepository<LegoColor, String> {
     List<LegoColor> findByNameLike(@Param("name") String name);
+
     Page<LegoColor> findByNameLike(@Param("name") String name, Pageable pageable);
 }

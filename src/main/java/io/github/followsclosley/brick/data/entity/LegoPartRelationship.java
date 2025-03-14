@@ -9,13 +9,6 @@ import lombok.RequiredArgsConstructor;
 //@Entity
 @Data
 public class LegoPartRelationship {
-    @Getter
-    @RequiredArgsConstructor
-    public enum RelationshipType {
-        P("Print"), R("Pair"), B("Sub"), M("Mold"), T("Pattern"), A("Alternate");
-        private final String display;
-    }
-
     private RelationshipType type;
     @ManyToOne
     @JoinColumn(name = "child_id")
@@ -23,4 +16,10 @@ public class LegoPartRelationship {
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private LegoPart parent;
+    @Getter
+    @RequiredArgsConstructor
+    public enum RelationshipType {
+        P("Print"), R("Pair"), B("Sub"), M("Mold"), T("Pattern"), A("Alternate");
+        private final String display;
+    }
 }

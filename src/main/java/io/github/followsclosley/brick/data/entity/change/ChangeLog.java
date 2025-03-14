@@ -18,7 +18,7 @@ public class ChangeLog {
     private Instant dateTimeEnd;
     private String message;
 
-    //@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     @Transient
     private List<ChangeLogLine> changeLogs;
 
@@ -30,8 +30,8 @@ public class ChangeLog {
     }
 
     @PrePersist
-    private void prePersist(){
-        if( dateTimeEnd == null) {
+    private void prePersist() {
+        if (dateTimeEnd == null) {
             dateTimeEnd = Instant.now();
         }
     }

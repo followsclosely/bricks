@@ -4,7 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.*;
+import lombok.Data;
 
 @Embeddable
 @Data
@@ -22,4 +22,11 @@ public class LegoInventoryPart {
     private int quantity;
     @Column(nullable = false)
     private boolean spare;
+
+    public String getCompositeKey(){
+        return (legoPart==null?"null":legoPart.getId()) + "." + (color==null?"null":color.getId() + "." + spare);
+    }
+//    public String getPartId(){
+//        return (legoPart==null) ? null : legoPart.getId();
+//    }
 }
