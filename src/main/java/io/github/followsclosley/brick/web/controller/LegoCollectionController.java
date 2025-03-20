@@ -15,7 +15,7 @@ public class LegoCollectionController {
     private final LegoCollectionRepository legoCollectionRepository;
 
     @GetMapping(value = "/collection/{id}", produces = "application/json")
-    LegoCollection getColor(@PathVariable String id) {
+    LegoCollection getCollectionById(@PathVariable String id) {
         return legoCollectionRepository.getReferenceById(id);
     }
 }

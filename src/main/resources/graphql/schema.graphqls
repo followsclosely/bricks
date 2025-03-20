@@ -1,8 +1,22 @@
 type Query {
+    legoCollection(id: String): LegoCollection!
     legoCollectionList(page: Int): [LegoCollection!]!
 }
 
 type LegoCollection {
     id: String
     description: String
+    items: [LegoCollectionItem!]
+}
+
+type LegoCollectionItem {
+    index: Int
+    quantity: Int
+    comment: String
+    legoElement: LegoElement
+}
+
+type LegoElement {
+    in: String
+    design: String
 }

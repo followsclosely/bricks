@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.web.controller.graphql;
+package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoCollection;
 import io.github.followsclosley.brick.data.repository.LegoCollectionRepository;
@@ -16,6 +16,12 @@ import java.util.List;
 public class LegoCollectionGraph{
 
     private final LegoCollectionRepository repository;
+
+    @QueryMapping
+    public LegoCollection legoCollection(@Argument String id) {
+        LegoCollection collection = repository.findById(id).orElseThrow();
+        return collection;
+    }
 
     @QueryMapping
     public List<LegoCollection> legoCollectionList(@Argument Integer page) {
