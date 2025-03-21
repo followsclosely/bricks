@@ -19,12 +19,12 @@ public class LegoCollectionGraph{
 
     @QueryMapping
     public LegoCollection legoCollection(@Argument String id) {
-        LegoCollection collection = repository.findById(id).orElseThrow();
-        return collection;
+        log.error("id = {}", id);
+        return repository.findById(id).orElseThrow();
     }
 
     @QueryMapping
-    public List<LegoCollection> legoCollectionList(@Argument Integer page) {
+    public List<LegoCollection> legoCollections(@Argument Integer page) {
         return repository.findAll();
     }
 

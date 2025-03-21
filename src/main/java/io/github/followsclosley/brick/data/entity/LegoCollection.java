@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,18 @@ public class LegoCollection {
 
     @Column
     private String description;
+
+    @Column
+    private Integer numberOfSets = 0;
+
+    @Column()
+    private Integer numberOfParts = 0;
+
+    @Column
+    private Instant created;
+
+    @Column
+    private Instant lastModified;
 
     //@OneToMany(mappedBy="parent")
     @OrderBy("index")

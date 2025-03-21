@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LegoCollectionController {
     private final LegoCollectionRepository legoCollectionRepository;
 
-    @GetMapping(value = "/collection/{id}", produces = "application/json")
+    @GetMapping(value = "/rest-collection/{id}", produces = "application/json")
     LegoCollection getCollectionById(@PathVariable String id) {
         return legoCollectionRepository.getReferenceById(id);
     }

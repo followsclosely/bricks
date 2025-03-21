@@ -1,12 +1,14 @@
 type Query {
-    legoCollection(id: String): LegoCollection!
-    legoCollectionList(page: Int): [LegoCollection!]!
+    legoCollection(id: String): LegoCollection
+    legoCollections(page: Int): [LegoCollection]
 }
 
 type LegoCollection {
     id: String
     description: String
-    items: [LegoCollectionItem!]
+    numberOfSets: Int
+    numberOfParts: Int
+    items: [LegoCollectionItem]
 }
 
 type LegoCollectionItem {
@@ -17,6 +19,12 @@ type LegoCollectionItem {
 }
 
 type LegoElement {
-    in: String
+    id: String
     design: String
+    legoPart: LegoPart
+}
+
+type LegoPart {
+    id: String
+    name: String
 }
