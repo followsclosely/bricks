@@ -19,7 +19,6 @@ public class LegoCollectionGraph{
 
     @QueryMapping
     public LegoCollection legoCollection(@Argument String id) {
-        log.error("id = {}", id);
         return repository.findById(id).orElseThrow();
     }
 

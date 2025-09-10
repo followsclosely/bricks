@@ -26,6 +26,25 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
+/**
+ * Service responsible for loading and synchronizing LEGO inventory parts from a remote CSV file
+ * (optionally gzipped) into the database. It compares the remote inventory with the current
+ * database state, adds new parts, updates changed parts, and removes parts no longer present.
+ * <p>
+ * The loader also tracks changes and persists a change log for auditing.
+ * </p>
+ *
+ * <p>
+ * Dependencies are injected via constructor and include repositories for LEGO inventories,
+ * parts, colors, and change logs.
+ * </p>
+ *
+ * <p>
+ * The remote CSV file location is configured via the property {@code catalog.rebrickable.inventories-parts}.
+ * </p>
+ *
+ * @author followsclosley
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -39,6 +58,23 @@ public class LegoInventoryPartLoader {
     @Value("${catalog.rebrickable.inventories-parts}")
     private String url;
 
+    /**
+     * Processes the remote LEGO inventory parts file, synchronizing the database with its contents.
+     * <ul>
+     *     <li>Downloads and parses the CSV file (supports gzip compression).</li>
+     *     <li>Loads all colors from the database for reference.</li>
+     *     <li>For each inventory, compares the file contents to the database and applies changes:
+     *         <ul>
+     *             <li>Adds new parts</li>
+     *             <li>Updates changed parts</li>
+     *             <li>Removes parts no longer present</li>
+     *         </ul>
+     *     </li>
+     *     <li>Persists changes and logs a summary in the change log repository.</li>
+     * </ul>
+     *
+     * @throws IOException if there is an error reading the remote file
+     */
     public void process() throws IOException {
         log.info("Downloading {} ...", url);
 
