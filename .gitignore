@@ -24,6 +24,6 @@ hs_err_pid*
 
 *.db
 
-build
-.gradle
-h2-*
+/h2-*
+/.gradle/
+/build/
