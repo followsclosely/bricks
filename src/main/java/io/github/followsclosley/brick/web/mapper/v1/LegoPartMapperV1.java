@@ -1,9 +1,7 @@
-package io.github.followsclosley.brick.mapper.v1;
+package io.github.followsclosley.brick.web.mapper.v1;
 
-import io.github.followsclosley.brick.data.entity.LegoCategory;
 import io.github.followsclosley.brick.data.entity.LegoPart;
-import io.github.followsclosley.brick.dto.v1.LegoCategoryDto;
-import io.github.followsclosley.brick.dto.v1.LegoPartDto;
+import io.github.followsclosley.brick.web.dto.v1.LegoPartDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
