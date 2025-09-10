@@ -24,7 +24,9 @@ hs_err_pid*
 
 *.db
 
-/h2-*
+/h2-bricks.*
 /.gradle/
 /gradle/
+/gradlew
+/gradle.bat
 /build/
