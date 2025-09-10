@@ -23,3 +23,7 @@
 hs_err_pid*
 
 *.db
+
+build
+.gradle
+h2-*
