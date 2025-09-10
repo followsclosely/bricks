@@ -16,7 +16,7 @@ public class LegoInventoryPart {
 
     @ManyToOne
     @JoinColumn(name = "color_id")
-    private LegoColor color;
+    private LegoColor legoColor;
 
     @Column(nullable = false)
     private int quantity;
@@ -24,6 +24,6 @@ public class LegoInventoryPart {
     private boolean spare;
 
     public String getCompositeKey(){
-        return (legoPart==null?"null":legoPart.getId()) + "." + (color==null?"null":color.getId() + "." + spare);
+        return (legoPart==null?"null":legoPart.getId()) + "." + (legoColor==null?"null":legoColor.getId() + "." + spare);
     }
 }

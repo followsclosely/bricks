@@ -2,6 +2,8 @@ package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoElement;
 import io.github.followsclosley.brick.data.repository.LegoElementRepository;
+import io.github.followsclosley.brick.dto.v1.LegoElementDto;
+import io.github.followsclosley.brick.mapper.v1.LegoElementMapperV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class LegoElementController {
     private final LegoElementRepository legoElementRepository;
+    private final LegoElementMapperV1 legoElementMapper;
 
 //    @GetMapping(value = "/element", produces = "application/json")
 //    Page<?> getColorsByName( @Param("name") String name, Pageable pageable) {
@@ -20,7 +23,7 @@ public class LegoElementController {
 //    }
 
     @GetMapping(value = "/element/{id}", produces = "application/json")
-    LegoElement getLegoElementById(@PathVariable String id) {
-        return legoElementRepository.getReferenceById(id);
+    LegoElementDto getLegoElementById(@PathVariable String id) {
+        return legoElementMapper.toDto(legoElementRepository.getReferenceById(id));
     }
 }

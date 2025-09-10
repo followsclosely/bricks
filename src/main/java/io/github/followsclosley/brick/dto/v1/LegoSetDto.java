@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.dto;
+package io.github.followsclosley.brick.dto.v1;
 
 import io.github.followsclosley.brick.data.entity.LegoTheme;
 import lombok.Data;

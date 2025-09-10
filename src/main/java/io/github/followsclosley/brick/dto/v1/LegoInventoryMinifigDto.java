@@ -1,9 +1,9 @@
-package io.github.followsclosley.brick.dto;
+package io.github.followsclosley.brick.dto.v1;
 
 import lombok.Data;
 
 @Data
 public class LegoInventoryMinifigDto {
-    private LegoMinifigDto legoMinifig;
+    private LegoMinifigDto minifig;
     private int quantity;
 }

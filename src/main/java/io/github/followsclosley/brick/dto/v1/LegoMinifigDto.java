@@ -1,4 +1,4 @@
-package io.github.followsclosley.brick.dto;
+package io.github.followsclosley.brick.dto.v1;
 
 public class LegoMinifigDto {
     private String id;

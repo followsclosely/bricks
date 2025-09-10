@@ -159,7 +159,7 @@ public class LegoInventoryPartLoader {
                 if (optionalPart.isPresent()) {
                     //inventory_id,part_num,color_id,quantity,is_spare,img_url
                     LegoInventoryPart inventoryPart = new LegoInventoryPart();
-                    inventoryPart.setColor(colors.get(record.get(2)));
+                    inventoryPart.setLegoColor(colors.get(record.get(2)));
                     inventoryPart.setQuantity(Integer.parseInt(record.get(3)));
                     inventoryPart.setSpare(Boolean.parseBoolean(record.get(4)));
                     legoPartRepository.findById(record.get(1)).ifPresent(inventoryPart::setLegoPart);
