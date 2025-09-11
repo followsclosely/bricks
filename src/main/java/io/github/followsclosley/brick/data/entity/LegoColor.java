@@ -11,5 +11,8 @@ public class LegoColor {
     private String id;
     private String name;
     private String rgb;
-    private Boolean transparent;
+    private String type;
+    private Integer parts;
+    private Integer yearFrom;
+    private Integer yearTo;
 }

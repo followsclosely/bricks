@@ -32,43 +32,43 @@ public class BasicLoaderFactory {
     private final LegoSetRepository setRepository;
     private final LegoMinifigRepository legoMinifigRepository;
 
-    @Bean
-    public BasicAbstractLoader<LegoColor, String> legoColorLoader(@Value("${catalog.rebrickable.colors}") String uri) {
-        return new BasicAbstractLoader<LegoColor, String>("Color", uri, csvParser, legoColorRepository, changeLogRepository) {
-            @Override
-            LegoColor map(CSVRecord record) {
-                LegoColor legoColor = new LegoColor();
-                legoColor.setId(record.get(0));
-                legoColor.setName(record.get(1));
-                legoColor.setRgb(record.get(2));
-                legoColor.setTransparent("t".equalsIgnoreCase(record.get(3)));
-                return legoColor;
-            }
+//    @Bean
+//    public BasicAbstractLoader<LegoColor, String> legoColorLoader(@Value("${catalog.rebrickable.colors}") String uri) {
+//        return new BasicAbstractLoader<LegoColor, String>("Color", uri, csvParser, legoColorRepository, changeLogRepository) {
+//            @Override
+//            LegoColor map(CSVRecord record) {
+//                LegoColor legoColor = new LegoColor();
+//                legoColor.setId(record.get(0));
+//                legoColor.setName(record.get(1));
+//                legoColor.setRgb(record.get(2));
+//                legoColor.setTransparent("t".equalsIgnoreCase(record.get(3)));
+//                return legoColor;
+//            }
+//
+//            @Override
+//            String getId(LegoColor color) {
+//                return color.getId();
+//            }
+//        };
+//    }
 
-            @Override
-            String getId(LegoColor color) {
-                return color.getId();
-            }
-        };
-    }
-
-    @Bean
-    public BasicAbstractLoader<LegoCategory, String> legoCategoryLoader(@Value("${catalog.rebrickable.part-categories}") String uri) {
-        return new BasicAbstractLoader<LegoCategory, String>("Category", uri, csvParser, legoCategoryRepository, changeLogRepository) {
-            @Override
-            LegoCategory map(CSVRecord record) {
-                LegoCategory category = new LegoCategory();
-                category.setId(record.get(0));
-                category.setName(record.get(1));
-                return category;
-            }
-
-            @Override
-            String getId(LegoCategory category) {
-                return category.getId();
-            }
-        };
-    }
+//    @Bean
+//    public BasicAbstractLoader<LegoCategory, String> legoCategoryLoader(@Value("${catalog.rebrickable.part-categories}") String uri) {
+//        return new BasicAbstractLoader<LegoCategory, String>("Category", uri, csvParser, legoCategoryRepository, changeLogRepository) {
+//            @Override
+//            LegoCategory map(CSVRecord record) {
+//                LegoCategory category = new LegoCategory();
+//                category.setId(record.get(0));
+//                category.setName(record.get(1));
+//                return category;
+//            }
+//
+//            @Override
+//            String getId(LegoCategory category) {
+//                return category.getId();
+//            }
+//        };
+//    }
 
     @Bean
     public BasicAbstractLoader<LegoTheme, String> legoThemeLoader(@Value("${catalog.rebrickable.themes}") String uri) {

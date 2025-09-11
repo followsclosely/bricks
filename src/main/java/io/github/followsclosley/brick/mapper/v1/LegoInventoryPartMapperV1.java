@@ -1,7 +1,7 @@
-package io.github.followsclosley.brick.web.mapper.v1;
+package io.github.followsclosley.brick.mapper.v1;
 
 import io.github.followsclosley.brick.data.entity.LegoInventoryPart;
-import io.github.followsclosley.brick.web.dto.v1.LegoInventoryPartDto;
+import io.github.followsclosley.brick.dto.v1.LegoInventoryPartDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

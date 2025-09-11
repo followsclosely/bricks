@@ -5,7 +5,9 @@ import org.apache.commons.csv.CSVFormat;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.integration.config.EnableIntegration;
 
+@EnableIntegration
 @SpringBootApplication
 public class BrickApplication {
     public static void main(String[] args) {
@@ -14,10 +16,10 @@ public class BrickApplication {
     }
 
     @Bean
-    public CSVFormat cvsParser() {
+    public CSVFormat csvParser() {
         return CSVFormat.DEFAULT.builder()
                 .setHeader().setSkipHeaderRecord(true)
-                .setDelimiter(',')
+                .setDelimiter("\t")
                 .setIgnoreEmptyLines(true)
                 .build();
     }

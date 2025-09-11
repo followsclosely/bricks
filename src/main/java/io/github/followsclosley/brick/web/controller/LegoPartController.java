@@ -2,8 +2,8 @@ package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoPart;
 import io.github.followsclosley.brick.data.repository.LegoPartRepository;
-import io.github.followsclosley.brick.web.dto.v1.LegoPartDto;
-import io.github.followsclosley.brick.web.mapper.v1.LegoPartMapperV1;
+import io.github.followsclosley.brick.dto.v1.LegoPartDto;
+import io.github.followsclosley.brick.mapper.v1.LegoPartMapperV1;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

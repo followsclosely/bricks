@@ -1,7 +1,7 @@
-package io.github.followsclosley.brick.web.mapper.v1;
+package io.github.followsclosley.brick.mapper.v1;
 
 import io.github.followsclosley.brick.data.entity.LegoMinifig;
-import io.github.followsclosley.brick.web.dto.v1.LegoMinifigDto;
+import io.github.followsclosley.brick.dto.v1.LegoMinifigDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

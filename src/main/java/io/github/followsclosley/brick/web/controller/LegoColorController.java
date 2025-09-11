@@ -2,8 +2,8 @@ package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoColor;
 import io.github.followsclosley.brick.data.repository.LegoColorRepository;
-import io.github.followsclosley.brick.web.dto.v1.LegoColorDto;
-import io.github.followsclosley.brick.web.mapper.v1.LegoColorMapperV1;
+import io.github.followsclosley.brick.dto.v1.LegoColorDto;
+import io.github.followsclosley.brick.mapper.v1.LegoColorMapperV1;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.query.Param;

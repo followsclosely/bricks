@@ -2,8 +2,8 @@ package io.github.followsclosley.brick.web.controller;
 
 import io.github.followsclosley.brick.data.entity.LegoTheme;
 import io.github.followsclosley.brick.data.repository.LegoThemeRepository;
-import io.github.followsclosley.brick.web.dto.v1.LegoThemeDto;
-import io.github.followsclosley.brick.web.mapper.v1.LegoThemeMapperV1;
+import io.github.followsclosley.brick.dto.v1.LegoThemeDto;
+import io.github.followsclosley.brick.mapper.v1.LegoThemeMapperV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

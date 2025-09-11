@@ -1,6 +1,7 @@
 package io.github.followsclosley.brick.data;
 
 import io.github.followsclosley.brick.data.entity.change.ChangeLog;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.builder.DiffResult;
 import org.apache.commons.lang3.builder.ReflectionDiffBuilder;
@@ -11,13 +12,19 @@ import java.util.Optional;
 @Slf4j
 public class ChangeLogBuilder<E> {
 
+    @Getter
+    private int processed, created, update;
+
     private final ChangeLog changeLog = ChangeLog.now();
 
     public boolean compare(E newEntity, Optional<E> oldEntity) {
+        processed++;
         if (oldEntity.isEmpty()) {
+            created++;
             changeLog.addLine("Created new " + newEntity.getClass().getSimpleName() + ": " + newEntity);
             return true;
         } else if (!oldEntity.get().equals(newEntity)) {
+            update++;
             DiffResult<E> differences = new ReflectionDiffBuilder<>(oldEntity.get(), newEntity, ToStringStyle.SHORT_PREFIX_STYLE).build();
             changeLog.addLine(differences.toString());
             return true;

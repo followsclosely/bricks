@@ -42,6 +42,10 @@ spring:
       indent_output: true
 
 catalog:
+  bricklink:
+    root-directory: ./src/main/resources/bricklink
+    colors: color*.txt
+    categories: categories*.txt
   rebrickable: #Resources must be loaded in this order
     colors: https://cdn.rebrickable.com/media/downloads/colors.csv.gz
     themes: https://cdn.rebrickable.com/media/downloads/themes.csv.gz
