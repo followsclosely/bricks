@@ -38,7 +38,7 @@ public class BrickApplication {
             Item item = service.getCatalogItem().getItem(Type.SET, "10305-1");
             System.out.println();
 
-            "https://www.bricklink.com/catalogDownload.asp?a=a&itemType=O&selYear=Y&selWeight=Y&selDim=Y&viewType=4&itemTypeInv=S&itemNo=10305-1&downloadType=T"
+            //"https://www.bricklink.com/catalogDownload.asp?a=a&itemType=O&selYear=Y&selWeight=Y&selDim=Y&viewType=4&itemTypeInv=S&itemNo=10305-1&downloadType=T"
         }
         catch (Exception e) {
             e.printStackTrace();
