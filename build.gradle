@@ -26,6 +26,10 @@ dependencies {
     // Lombok-MapStruct Binding
     annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
+    implementation 'com.github.scribejava:scribejava-core:8.3.3'
+
+    implementation 'org.dajlab:bricklinkapi:0.0.5'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
