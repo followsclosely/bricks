@@ -12,10 +12,12 @@ public class LegoSet {
     @Id
     private String id;
     private String name;
-    private int releaseYear;
+    private Integer releaseYear;
+
+    private Integer weightInGrams;
+    private String dimensions;
+
     @ManyToOne
-    @JoinColumn(name = "theme_id")
-    private LegoTheme legoTheme;
-    private int partCount;
-    private String imageUrl;
+    @JoinColumn(name = "category_id")
+    private LegoCategory legoCategory;
 }

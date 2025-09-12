@@ -22,7 +22,8 @@ public class ChangeLogLine {
 
     @Column(length = 5000)
     private String message;
-    public String getMessage(){
-        return ( message == null || message.length() < 5000) ? message : StringUtils.truncate(message, 5000);
+
+    public String getMessage() {
+        return (message == null || message.length() < 5000) ? message : StringUtils.truncate(message, 5000);
     }
 }

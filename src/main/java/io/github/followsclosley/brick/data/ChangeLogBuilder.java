@@ -12,10 +12,9 @@ import java.util.Optional;
 @Slf4j
 public class ChangeLogBuilder<E> {
 
+    private final ChangeLog changeLog = ChangeLog.now();
     @Getter
     private int processed, created, update;
-
-    private final ChangeLog changeLog = ChangeLog.now();
 
     public boolean compare(E newEntity, Optional<E> oldEntity) {
         processed++;
@@ -36,6 +35,7 @@ public class ChangeLogBuilder<E> {
         changeLog.setEntity(entity);
         return this;
     }
+
     public ChangeLogBuilder<E> setMessage(String message) {
         changeLog.setMessage(message);
         return this;

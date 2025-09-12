@@ -1,9 +1,6 @@
 package io.github.followsclosley.brick.data.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -11,10 +8,11 @@ import lombok.Data;
 public class LegoPart {
     @Id
     private String id;
+    @Column(length = 1000)
     private String name;
+    private String alternate;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private LegoCategory legoCategory;
-    private String material;
 }

@@ -8,17 +8,16 @@ import lombok.Data;
 
 @Entity
 @Data
-public class LegoElement {
+public class LegoInstructions {
     @Id
     private String id;
+    private String name;
+    private Integer releaseYear;
+
+    private Integer weightInGrams;
+    private String dimensions;
 
     @ManyToOne
-    @JoinColumn(name = "part_id")
-    private LegoPart legoPart;
-
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private LegoColor legoColor;
-
-    private String design;
+    @JoinColumn(name = "category_id")
+    private LegoCategory legoCategory;
 }

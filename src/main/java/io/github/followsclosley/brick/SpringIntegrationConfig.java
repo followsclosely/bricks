@@ -35,6 +35,38 @@ public class SpringIntegrationConfig {
         return fileReadingMessageSource(rootDirectory, fileNamePattern);
     }
 
+    @Bean
+    @InboundChannelAdapter(value = "fileInputChannel-LegoPart", poller = @Poller(fixedDelay = "1000"))
+    public FileReadingMessageSource bricklinkLegoPartLoader(
+            @Value("${catalog.bricklink.parts}") String fileNamePattern
+    ) throws IOException {
+        return fileReadingMessageSource(rootDirectory, fileNamePattern);
+    }
+
+    @Bean
+    @InboundChannelAdapter(value = "fileInputChannel-LegoSet", poller = @Poller(fixedDelay = "1000"))
+    public FileReadingMessageSource bricklinkLegoSetLoader(
+            @Value("${catalog.bricklink.sets}") String fileNamePattern
+    ) throws IOException {
+        return fileReadingMessageSource(rootDirectory, fileNamePattern);
+    }
+
+    @Bean
+    @InboundChannelAdapter(value = "fileInputChannel-LegoMinifig", poller = @Poller(fixedDelay = "1000"))
+    public FileReadingMessageSource bricklinkLegoMinifigLoader(
+            @Value("${catalog.bricklink.minifigs}") String fileNamePattern
+    ) throws IOException {
+        return fileReadingMessageSource(rootDirectory, fileNamePattern);
+    }
+
+    @Bean
+    @InboundChannelAdapter(value = "fileInputChannel-LegoInstructions", poller = @Poller(fixedDelay = "1000"))
+    public FileReadingMessageSource bricklinkLegoInstructionsLoader(
+            @Value("${catalog.bricklink.instructions}") String fileNamePattern
+    ) throws IOException {
+        return fileReadingMessageSource(rootDirectory, fileNamePattern);
+    }
+
 
     private FileReadingMessageSource fileReadingMessageSource(String rootDirectory, String fileNamePattern) throws IOException {
         FileReadingMessageSource source = new FileReadingMessageSource();
